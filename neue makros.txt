@@ -1,6 +1,0 @@
-neue macros:
-
-\setuniversity{name}
-\setfaculty{german}{englisch}
-\setinstitut{german}{englisch}
-\setlogo{UN_INS_logo.eps} UN=universität 2 buchstaben, INS=institut 3 buchstaben
