@@ -1,0 +1,11 @@
+addmacro
+
+\setuniversity{}
+\setfaculty{}{}
+\setinstitut{}{}
+
+\setlogo{}
+
+NeedPackages anpassen
+
+Namen thesistu anpassen

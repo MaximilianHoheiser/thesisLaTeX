@@ -110,7 +110,7 @@ acs-*.bib
 *.cpt
 
 #class files
-*.cls
+# *.cls
 *.hd
 
 # fixme
