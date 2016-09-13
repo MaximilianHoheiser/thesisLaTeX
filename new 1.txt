@@ -1,7 +1,6 @@
 % Copyright (C) 2014-2016 by Thomas Auzinger <thomas@auzinger.name>
 % Copyright (C) 2016 by Maximilian Hoheiser <maximilian.hoheier@student.tuwien.ac.at>
 
-
 \documentclass[final]{vutinfth} % Remove option 'final' to obtain debug information.
 %atention draft only links images, but doesnt diplay them [draft,final]
 
@@ -20,26 +19,16 @@
 \usepackage{multirow}   % Allows table elements to span several rows.
 \usepackage{booktabs}   % Improves the typesettings of tables.
 \usepackage{subcaption} % Allows the use of subfigures and enables their referencing.
-
 \usepackage[ruled,linesnumbered,algochapter]{algorithm2e} % Enables the writing of pseudo code.
 \usepackage[usenames,dvipsnames,table]{xcolor} % Allows the definition and use of colors. This package has to be included before tikz.
 \usepackage{nag}       % Issues warnings when best practices in writing LaTeX documents are violated.
 \usepackage{hyperref}  % Enables cross linking in the electronic document version. This package has to be included second to last.
 \usepackage[acronym,toc]{glossaries} % Enables the generation of glossaries and lists fo acronyms. This package has to be included last.
 
-\usepackage{chngcntr} %use this package to change the numberation of specific types
-\counterwithin{figure}{subsection} %change numberation of figures from subsection number
-\counterwithin{table}{subsection} %change numberation of tables from subsection number
-\numberwithin{equation}{subsection} %change numberation of equations from subsection number
+%Einbinden von Bilder und externen Dokumenten
+\graphicspath{{./graphics/messanleitung/}{./graphics/theorie/}{./graphics/beschreibung}{./graphics/}} %deklarieren der relativen (zu der main .tex Datei) Pfade der Ordner und Subordnern in denen nach Bildern resucht werden soll
+\DeclareGraphicsExtensions{.jpg, .png} %deklarieren der Endungen nach denen Latex in Obigen ordnern suchen soll
 
-\usepackage{subfiles} %allows that chapters are in separate txt files, and can be placed in a subfolder
-%subfiles can be comppiled on their own
-
-%include images in the tex files, which can be in separate folders
-\graphicspath{{graphics/}{example/graphics/}{chapter01/graphics/}{chapter02/graphics/}}
-\DeclareGraphicsExtensions{.jpg, .png, .eps} %defines the image extensions LaTeX searches for
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define convenience functions to use the author name and the thesis title in the PDF document properties.
 \newcommand{\authorname}{Forename Surname} % The author name without titles.
 \newcommand{\thesistitle}{Title of the Thesis} % The title of the thesis. The English version should be used, if it exists.
@@ -63,8 +52,6 @@
 \makeglossaries % Use an optional glossary.
 %\glstocfalse   % Remove the glossaries from the table of contents.
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Set persons with 4 arguments:
 %  {title before name}{name}{title after name}{gender}
 %  where both titles are optional (i.e. can be given as empty brackets {}).
@@ -90,8 +77,6 @@
 \settitle{\thesistitle}{Titel der Arbeit} % Sets English and German version of the title (both can be English or German).
 \setsubtitle{Optional Subtitle of the Thesis}{Optionaler Untertitel der Arbeit} % Sets English and German version of the subtitle (both can be English or German).
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Select the thesis type: bachelor / master / doctor / phd-school.
 % Bachelor:
 \setthesis{bachelor}
@@ -109,16 +94,11 @@
 
 % For bachelor and master:
 \setcurriculum{Media Informatics and Visual Computing}{Medieninformatik und Visual Computing} % Sets the English and German name of the curriculum.
-%\setfaculty{faculty}{Fakultät} %Sets the Englisch and German name of the Faculty
-%\setinstitut{institut}{Insitut} %Sets the Englisch and German name of the Institut
-
 
 % For dissertations at the PhD School:
 \setfirstreviewerdata{Affiliation, Country}
 \setsecondreviewerdata{Affiliation, Country}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define convenience macros.
 \newcommand{\todo}[1]{{\color{red}\textbf{TODO: {#1}}}} % Comment for the final version, to raise errors.
 
@@ -133,15 +113,22 @@
 \addtitlepage{english} % English title page.
 \addstatementpage
 
+\begin{danksagung*}
+\todo{Ihr Text hier.}
+\end{danksagung*}
 
-%include the chapter acknowledgements
-\subfile{./acknowledgements/acknowledgements.tex} %both englisch and german version are in the same subfile acknowledgments.txt
+\begin{acknowledgements*}
+\todo{Enter your text here.}
+\end{acknowledgements*}
 
-%include the chapter abstract 
-\subfile{./abstract/abstract.tex} %both the englisch and german version are in the same subfile abstract.txt
+\begin{kurzfassung}
+\todo{Ihr Text hier.}
+\end{kurzfassung}
 
+\begin{abstract}
+\todo{Enter your text here.}
+\end{abstract}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Select the language of the thesis, e.g., english or naustrian.
 \selectlanguage{english}
 
@@ -151,22 +138,14 @@
 % Switch to arabic numbering and start the enumeration of chapters in the table of content.
 \mainmatter
 
-%if you like to write a chapter in the main file
-%\chapter{Introduction}
-%\todo{Enter your text here.}
+\chapter{Introduction}
+\todo{Enter your text here.}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Additional Chapter}
+\todo{Enter your text here.}
 
-%include a example chapter where layout and functions of this class are displayed
-\subfile{./example/example.tex} %remove for your thesis
-
-% include chapter01 
-\subfile{./chapter01/chapter01.tex} %chapter01 is in a sepperate latex file, and can be compiled on its own
-
-% include chapter02
-\subfile{./chapter02/chapter02.tex} %chapter01 is in a sepperate latex file, and can be compiled on its own
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Remove following line for the final thesis.
+\input{intro.tex} % A short introduction to LaTeX.
 
 \backmatter
 
@@ -188,7 +167,6 @@
 
 % Add a bibliography.
 \bibliographystyle{alpha}
-\bibliography{./example/example} %implements a bibliography for a chapter, where the bib file is stored in a sepperat chapter folder
-\bibliography{thesis} %implements a bibliography from a supplied biblatex file, which must be in the main folder 
+\bibliography{intro}
 
 \end{document}

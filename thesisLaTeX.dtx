@@ -65,8 +65,15 @@
 %   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %   Right brace   \}     Tilde         \~}
 %
+%% \newcommand{\issue}[1]{\href{https://gitlab.cg.tuwien.ac.at/auzinger/vutinfth/issues/#1}{Issue \#{}#1}}
 %
-% \changes{v0.1}{2016/09/01}{Pre-release version}
+% \changes{v0.9}{2014/05/30}{Pre-release version}
+% \changes{v1.0}{2014/09/07}{Initial release version}
+% \changes{v1.1}{2014/10/07}{Added references to the GitLab environment}
+% \changes{v1.3}{2014/11/25}{Added support for a dissertation at the Vienna Phd School of Informatics. \issue{4}}
+% \changes{v1.4}{2015/08/01}{Added comma to separate posttitle and changed mainmatter pagestyle to `Ruled'.}
+% \changes{v1.5}{2016/01/17}{Updated name of university to `TU Wien'.}
+% \changes{v2.01}{2016/09/01}{Pre-release version Max}
 %
 % \GetFileInfo{thesisLaTeX.dtx}
 %
@@ -327,7 +334,7 @@
 % if bot the englisch and the german titlepage are used, both names mutst be supplied.
 %
 % \DescribeMacro{\setinstitut}
-% Use as |\setinstitut}|\marg{english}\marg{german}, it specifies a name for yout institut, like the |\setfaculty| macro depending
+% Use as |\setinstitut}|\marg{english}\marg{german}, it specifies a name for yout institut, like the |\setinstitut| macro depending
 % on which tilepage is used, the german and, or the english name must be supplied.
 %
 % \DescribeMacro{\addtitlepage}
@@ -352,9 +359,9 @@
 % It consists of obligatory items such as the title page(s) and the statement of originality as well as optional items such as the acknowledgements or the abstract in different languages.
 % In the remainder of this section, the available items of the front matter are given.
 %
-%\DescribeMacro{\setlogo}
-% Used as |\setlogo|\marg{UN}_\marg{INS}_Logo.eps}, where \meta{UN} are the first two Letters of your university
-% \meta{INS} are the first tree letters of your institut. The Logo-File must be a vektor graphic with the |.eps| format.
+% \DescribeMacro{\setlogo}
+% Used as |\setlogo|\marg{UNins}, where \meta{UN} are the first two Letters of your university
+% and \meta{ins} are the first tree letters of your institut. The Logo-File must be a vektor graphic with the |.eps| format.
 % to create your own, use the given ones as referenc.
 %
 % \DescribeMacro{\addtitlepage}
@@ -391,35 +398,35 @@
 % \subsection{Data}
 %
 % To compose several parts of the thesis layout, input from the thesis author is required.
-% For the |thesisLaTeX| class, this is realized by the commands provided in Section~\ref{sec:user:data}.
+% For the |vutinfth| class, this is realized by the commands provided in Section~\ref{sec:user:data}.
 % Additional data can be defined with the the commands in the remainder of this section.
 %
 % \DescribeMacro{\CreateData}
 % Used as |\CreateData|\marg{name}, it generates a command |\set|\meta{name}.
-% Used as |\set|\meta{name}\marg{string}, the newly created command assigns the value \meta{string} to the internal variable |\thesisLaTeX@data@|\meta{name}.
+% Used as |\set|\meta{name}\marg{string}, the newly created command assigns the value \meta{string} to the internal variable |\vutinfth@data@|\meta{name}.
 % The variable is initialized with an error value to alert the user of the fact that \meta{string} was not supplied via the |\set|\meta{name} command.
-% Furthermore, a command |\thesisLaTeX@data@|\meta{name}|@def| is created, to increase source code readability when verifying the existance of a specific data item.
+% Furthermore, a command |\vutinfth@data@|\meta{name}|@def| is created, to increase source code readability when verifying the existance of a specific data item.
 % See Section~\ref{sec:impl:data:declarations} for examples.
 %
 % \DescribeMacro{\CreatePerson}
 % Used as |\CreatePerson|\marg{name}, it generates a command |\set|\meta{name}.
-% Used as |\set|\meta{name}\marg{pretitle}\marg{personname}\marg{posttitle}\marg{gender}, the newly created command assigns the supplied values to the corresponding internal variables |\thesisLaTeX@person@|\meta{name}|@|\textellipsis as given in the table below.
+% Used as |\set|\meta{name}\marg{pretitle}\marg{personname}\marg{posttitle}\marg{gender}, the newly created command assigns the supplied values to the corresponding internal variables |\vutinfth@person@|\meta{name}|@|\textellipsis as given in the table below.
 % \begin{center}
 % \begin{tabular}{lllc}
 %   \toprule
 %   Argument & Internal Variable\\
 %   \midrule
-%                     & |\thesisLaTeX@person@|\meta{name}|@def|   \\
-%   \meta{pretitle}   & |\thesisLaTeX@person@|\meta{name}|@pretitle|  \\
-%   \meta{personname} & |\thesisLaTeX@person@|\meta{name}|@name|      \\
-%   \meta{posttitle}  & |\thesisLaTeX@person@|\meta{name}|@posttitle| \\
-%   \meta{gender}     & |\thesisLaTeX@person@|\meta{name}|@gender|    \\
+%                     & |\vutinfth@person@|\meta{name}|@def|   \\
+%   \meta{pretitle}   & |\vutinfth@person@|\meta{name}|@pretitle|  \\
+%   \meta{personname} & |\vutinfth@person@|\meta{name}|@name|      \\
+%   \meta{posttitle}  & |\vutinfth@person@|\meta{name}|@posttitle| \\
+%   \meta{gender}     & |\vutinfth@person@|\meta{name}|@gender|    \\
 %   \bottomrule
 % \end{tabular}
 % \end{center}
-% The command |\thesisLaTeX@person@|\meta{name}|@def| is created to increase source code readability when verifying the existance of a specific person.
-% Furthermore, the command |\thesisLaTeX@person@|\meta{name}|@fullname| returns the person's name together with existing titles and correct whitespace in between.
-% The person's gender is either |\thesisLaTeX@person@male| or |\thesisLaTeX@person@female|, depending on the input.
+% The command |\vutinfth@person@|\meta{name}|@def| is created to increase source code readability when verifying the existance of a specific person.
+% Furthermore, the command |\vutinfth@person@|\meta{name}|@fullname| returns the person's name together with existing titles and correct whitespace in between.
+% The person's gender is either |\vutinfth@person@male| or |\vutinfth@person@female|, depending on the input.
 % See Section~\ref{sec:impl:data:declarations} for examples.
 %
 % \DescribeMacro{\AddLanguage}
@@ -641,12 +648,12 @@
 %
 % \subsubsection{Persons}
 %
-% \begin{macro}{\thesisLaTeX@person@male}
-% \begin{macro}{\thesisLaTeX@person@female}
+% \begin{macro}{\vutinfth@person@male}
+% \begin{macro}{\vutinfth@person@female}
 % Two genders are differentiated for each person: |male| and |female|.
 %    \begin{macrocode}
-\newcommand{\thesisLaTeX@person@male}{male}%
-\newcommand{\thesisLaTeX@person@female}{female}%
+\newcommand{\vutinfth@person@male}{male}%
+\newcommand{\vutinfth@person@female}{female}%
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -656,29 +663,29 @@
 % Convenience macros to determine the gender of a person.
 %    \begin{macrocode}
 \newcommand{\ifmale}[2]{%
-  \ifcsstring{thesisLaTeX@person@#1@gender}{\thesisLaTeX@person@male}{#2}{}%
+  \ifcsstring{vutinfth@person@#1@gender}{\vutinfth@person@male}{#2}{}%
 }%
 \newcommand{\iffemale}[2]{%
-  \ifcsstring{thesisLaTeX@person@#1@gender}{\thesisLaTeX@person@female}{#2}{}%
+  \ifcsstring{vutinfth@person@#1@gender}{\vutinfth@person@female}{#2}{}%
 }%
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
 %
-% \begin{macro}{\thesisLaTeX@def@person}
+% \begin{macro}{\vutinfth@def@person}
 % \changes{v1.4}{2015/08/01}{Added comma to separate posttitle.}
 % Creates the internal storage for a person's name, titles and gender.
 %    \begin{macrocode}
-\newcommand{\thesisLaTeX@def@person}[5]{%
-  \@namedef{thesisLaTeX@person@#1@def}{}%
-  \@namedef{thesisLaTeX@person@#1@pretitle}{#2}%
-  \@namedef{thesisLaTeX@person@#1@name}{#3}%
-  \@namedef{thesisLaTeX@person@#1@posttitle}{#4}%
-  \ifdefstring{\thesisLaTeX@person@male}{#5}{%
-    \@namedef{thesisLaTeX@person@#1@gender}{\thesisLaTeX@person@male}%
+\newcommand{\vutinfth@def@person}[5]{%
+  \@namedef{vutinfth@person@#1@def}{}%
+  \@namedef{vutinfth@person@#1@pretitle}{#2}%
+  \@namedef{vutinfth@person@#1@name}{#3}%
+  \@namedef{vutinfth@person@#1@posttitle}{#4}%
+  \ifdefstring{\vutinfth@person@male}{#5}{%
+    \@namedef{vutinfth@person@#1@gender}{\vutinfth@person@male}%
   }{}%
-  \ifdefstring{\thesisLaTeX@person@female}{#5}{%
-    \@namedef{thesisLaTeX@person@#1@gender}{\thesisLaTeX@person@female}%
+  \ifdefstring{\vutinfth@person@female}{#5}{%
+    \@namedef{vutinfth@person@#1@gender}{\vutinfth@person@female}%
   }{}%
 %    \end{macrocode}
 % For the full name, additional spaces have to be inserted depending on the presence of pre- or posttitles.
@@ -744,7 +751,7 @@
 }%
 %    \end{macrocode}
 % \end{macro}
-%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \subsubsection{Polylingual Text}
 %
 % This class supports bi- and polylingual text via a key-value mechanism. See the |\CreatePolylingual| command further down for the actual definition of polylingual expressions.
@@ -859,7 +866,7 @@
 }%
 %    \end{macrocode}
 % \end{macro}
-%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \subsubsection{Thesis Types}
 %
 % \begin{macro}{\thesisLaTeX@thesis@basetype@undergraduate}
@@ -1141,7 +1148,7 @@
 }%
 %    \end{macrocode}
 % \end{macro}
-%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \subsubsection{Declarations}
 %\label{sec:impl:data:declarations}
 %
