@@ -1,0 +1,5 @@
+neue macros:
+
+\setfaculty{german}{englisch}
+\setinstitut{german}{englisch}
+\setlogo{}
