@@ -1,4 +1,4 @@
-                       tuphys LaTeX2e document class
+ï»¿                       tuphys LaTeX2e document class
                            Academic thesis template
 
                   by Thomas Auzinger <thomas@auzinger.name>
@@ -18,10 +18,10 @@ TexMaker
 		
 Descriptiontuphys
 -----------
-Genauso wie tuphys mit einigen Ändrungen
-	Fakultät auf Deckblatt festlegen über eingabebefehl \setfak{FAKULTÄT}
+Genauso wie tuphys mit einigen Aendrungen
+	Fakulaet auf Deckblatt festlegen ueber eingabebefehl \setfak{FAKULTAET}
 	Institut auf Deckblatt englisch und deutsch mit fariable \setinstitut{INSTITUTNAME}
-	aus \setlogo{KÜRZEL} auf Hederlogofile verweisen mit dem Namen : TU_KÜRZEL_Logo
+	aus \setlogo{KUERZEL} auf Hederlogofile verweisen mit dem Namen : TU_KUERZEL_Logo
 	
 	
 Description
@@ -151,5 +151,5 @@ This work consists of the files tuphys.dtx and tuphys.ins
 and the derived file tuphys.cls.
 This work also consists of the file intro.tex.
 
-The 'TU Wien' logo and 'Fakultät für !nformatik' logo are copyright of the TU
+The 'TU Wien' logo and 'Fakultaet fuer !nformatik' logo are copyright of the TU
 Wien.
