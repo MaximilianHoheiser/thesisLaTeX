@@ -31,7 +31,7 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{thesistu}
     [2016/09/01 v0.1 TU Wien Faculty of Physics thesis template]
-%% \newcommand{\issue}[1]{\href{https://gitlab.cg.tuwien.ac.at/auzinger/vutinfth/issues/#1}{Issue \#{}#1}}
+%% \newcommand{\issue}[1]{\href{https://gitlab.cg.tuwien.ac.at/auzinger/thesistu/issues/#1}{Issue \#{}#1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -109,24 +109,24 @@
   }%
   \thesistu@def@data@invalid{#1}{\string\set#1}%
 }%
-\newcommand{\vutinfth@person@male}{male}%
-\newcommand{\vutinfth@person@female}{female}%
+\newcommand{\thesistu@person@male}{male}%
+\newcommand{\thesistu@person@female}{female}%
 \newcommand{\ifmale}[2]{%
-  \ifcsstring{vutinfth@person@#1@gender}{\vutinfth@person@male}{#2}{}%
+  \ifcsstring{thesistu@person@#1@gender}{\thesistu@person@male}{#2}{}%
 }%
 \newcommand{\iffemale}[2]{%
-  \ifcsstring{vutinfth@person@#1@gender}{\vutinfth@person@female}{#2}{}%
+  \ifcsstring{thesistu@person@#1@gender}{\thesistu@person@female}{#2}{}%
 }%
-\newcommand{\vutinfth@def@person}[5]{%
-  \@namedef{vutinfth@person@#1@def}{}%
-  \@namedef{vutinfth@person@#1@pretitle}{#2}%
-  \@namedef{vutinfth@person@#1@name}{#3}%
-  \@namedef{vutinfth@person@#1@posttitle}{#4}%
-  \ifdefstring{\vutinfth@person@male}{#5}{%
-    \@namedef{vutinfth@person@#1@gender}{\vutinfth@person@male}%
+\newcommand{\thesistu@def@person}[5]{%
+  \@namedef{thesistu@person@#1@def}{}%
+  \@namedef{thesistu@person@#1@pretitle}{#2}%
+  \@namedef{thesistu@person@#1@name}{#3}%
+  \@namedef{thesistu@person@#1@posttitle}{#4}%
+  \ifdefstring{\thesistu@person@male}{#5}{%
+    \@namedef{thesistu@person@#1@gender}{\thesistu@person@male}%
   }{}%
-  \ifdefstring{\vutinfth@person@female}{#5}{%
-    \@namedef{vutinfth@person@#1@gender}{\vutinfth@person@female}%
+  \ifdefstring{\thesistu@person@female}{#5}{%
+    \@namedef{thesistu@person@#1@gender}{\thesistu@person@female}%
   }{}%
   \ifstrempty{#3}{%
     \ifstrempty{#2}{%
@@ -412,11 +412,14 @@
   english=Registration Number,
   naustrian=Matrikelnummer]{Registrationnumber}%
 \CreatePolylingual[
-  english=to the Faculty of Informatics,
-  naustrian=an der Fakult\"at f\"ur Informatik]{faculty}%
+  english=to the Faculty of ,
+  naustrian=an der Fakult\"at f\"ur ]{facultytext}%
 \CreatePolylingual[
-  english=at the TU Wien,
-  naustrian=der Technischen Universit\"at Wien]{university}%
+  english=at the ,
+  naustrian=der ]{universitytext}%
+\CreatePolylingual[
+  english= at the ,
+  naustrian= am ]{instituttext}%
 \CreatePolylingual[
   english=Assistance,
   naustrian=Mitwirkung]{Assistance}%
@@ -517,6 +520,15 @@
 \newcommand{\setcurriculum}[2]{%
   \CreatePolylingual[english=#1,naustrian=#2]{Curriculum}%
 }%
+\newcommand{\setuniversity}[2]{%
+  \CreatePolylingual[english=#1,naustrian=#2]{university}%
+}%
+\newcommand{\setfaculty}[2]{%
+  \CreatePolylingual[english=#1,naustrian=#2]{faculty}%
+}%
+\newcommand{\setinstitut}[2]{%
+  \CreatePolylingual[english=#1,naustrian=#2]{institut}%
+}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\newsetlength}[2]{%
   \newlength{#1}%
@@ -559,6 +571,7 @@
     \hspace*{\thesistu@logo@offset@x}%
     \raisebox{\thesistu@logo@offset@y}{%
       \includegraphics[scale=1]{TU_INF_Logo_gray}%
+%%   \includegraphics[scale=1]{\thesistu@logo@image}%
     }%
   \end{minipage}%
 }%
@@ -745,7 +758,7 @@
   \begin{SFFont}{phv}%
     \sffamily
     {\centering
-      \vspace*{1.2cm}\par
+      \vspace*{0.8cm}\par
       \begin{minipage}[t][5cm][b]{\textwidth}%
         \centering
         \thesistu@HUGE{\bfseries\thesistu@polylingual@Title}\\
@@ -787,11 +800,14 @@
     }%
     \thesistu@bigskip\thesistu@bigskip
     \ifgraduate{\ifphd{\vspace*{-8mm}}}%
-    \begin{minipage}[b][1.6cm][c]{\textwidth}%
+    \begin{minipage}[b][1.8cm][c]{\textwidth}%
       \thesistu@normalsize%
-      \thesistu@polylingual@faculty\par
-      \thesistu@polylingual@university
-    \end{minipage}\par
+  \vspace{1mm}
+      \thesistu@polylingual@facultytext \space \thesistu@polylingual@faculty\\
+  \thesistu@polylingual@instituttext \space \thesistu@polylingual@institut\\
+      \thesistu@polylingual@universitytext \space \thesistu@polylingual@university\\
+    \end{minipage}
+\vspace{1mm}
     \AdvisorBlock\par
     \vfill
     \ReviewerBlock\par

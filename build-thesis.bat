@@ -31,7 +31,6 @@ del *.lot
 del *.out
 del *.toc
 del *.hd
-del *.loa
 
 @echo off
 echo.

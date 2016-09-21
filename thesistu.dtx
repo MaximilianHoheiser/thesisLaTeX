@@ -65,7 +65,7 @@
 %   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %   Right brace   \}     Tilde         \~}
 %
-%% \newcommand{\issue}[1]{\href{https://gitlab.cg.tuwien.ac.at/auzinger/vutinfth/issues/#1}{Issue \#{}#1}}
+%% \newcommand{\issue}[1]{\href{https://gitlab.cg.tuwien.ac.at/auzinger/thesistu/issues/#1}{Issue \#{}#1}}
 %
 % \changes{v0.9}{2014/05/30}{Pre-release version}
 % \changes{v1.0}{2014/09/07}{Initial release version}
@@ -73,7 +73,7 @@
 % \changes{v1.3}{2014/11/25}{Added support for a dissertation at the Vienna Phd School of Informatics. \issue{4}}
 % \changes{v1.4}{2015/08/01}{Added comma to separate posttitle and changed mainmatter pagestyle to `Ruled'.}
 % \changes{v1.5}{2016/01/17}{Updated name of university to `TU Wien'.}
-% \changes{v2.01}{2016/09/01}{Pre-release version Max}
+% \changes{v2.0}{2016/09/01}{added setinstitut, setuniversity, setfaculty}
 %
 % \GetFileInfo{thesistu.dtx}
 %
@@ -329,6 +329,10 @@
 % Used as |\setsubtitle|\marg{english}\marg{german}, it sets the subtitle of the thesis.
 % The same specifications as for |\settitle| apply.
 %
+% \DescribeMacro{\setuniversity}
+% Use as |\setuniversity|\marg{english}\marg{german}, it sets the university name both in englisch and in german, 
+% if both the english and the german titlepage are used, both names must be supplied.
+%
 % \DescribeMacro{\setfaculty}
 % Use as |\setfaculty|\marg{englisch}\marg{german},it sets the faculty name both in englisch and in german, 
 % if bot the englisch and the german titlepage are used, both names mutst be supplied.
@@ -398,35 +402,35 @@
 % \subsection{Data}
 %
 % To compose several parts of the thesis layout, input from the thesis author is required.
-% For the |vutinfth| class, this is realized by the commands provided in Section~\ref{sec:user:data}.
+% For the |thesistu| class, this is realized by the commands provided in Section~\ref{sec:user:data}.
 % Additional data can be defined with the the commands in the remainder of this section.
 %
 % \DescribeMacro{\CreateData}
 % Used as |\CreateData|\marg{name}, it generates a command |\set|\meta{name}.
-% Used as |\set|\meta{name}\marg{string}, the newly created command assigns the value \meta{string} to the internal variable |\vutinfth@data@|\meta{name}.
+% Used as |\set|\meta{name}\marg{string}, the newly created command assigns the value \meta{string} to the internal variable |\thesistu@data@|\meta{name}.
 % The variable is initialized with an error value to alert the user of the fact that \meta{string} was not supplied via the |\set|\meta{name} command.
-% Furthermore, a command |\vutinfth@data@|\meta{name}|@def| is created, to increase source code readability when verifying the existance of a specific data item.
+% Furthermore, a command |\thesistu@data@|\meta{name}|@def| is created, to increase source code readability when verifying the existance of a specific data item.
 % See Section~\ref{sec:impl:data:declarations} for examples.
 %
 % \DescribeMacro{\CreatePerson}
 % Used as |\CreatePerson|\marg{name}, it generates a command |\set|\meta{name}.
-% Used as |\set|\meta{name}\marg{pretitle}\marg{personname}\marg{posttitle}\marg{gender}, the newly created command assigns the supplied values to the corresponding internal variables |\vutinfth@person@|\meta{name}|@|\textellipsis as given in the table below.
+% Used as |\set|\meta{name}\marg{pretitle}\marg{personname}\marg{posttitle}\marg{gender}, the newly created command assigns the supplied values to the corresponding internal variables |\thesistu@person@|\meta{name}|@|\textellipsis as given in the table below.
 % \begin{center}
 % \begin{tabular}{lllc}
 %   \toprule
 %   Argument & Internal Variable\\
 %   \midrule
-%                     & |\vutinfth@person@|\meta{name}|@def|   \\
-%   \meta{pretitle}   & |\vutinfth@person@|\meta{name}|@pretitle|  \\
-%   \meta{personname} & |\vutinfth@person@|\meta{name}|@name|      \\
-%   \meta{posttitle}  & |\vutinfth@person@|\meta{name}|@posttitle| \\
-%   \meta{gender}     & |\vutinfth@person@|\meta{name}|@gender|    \\
+%                     & |\thesistu@person@|\meta{name}|@def|   \\
+%   \meta{pretitle}   & |\thesistu@person@|\meta{name}|@pretitle|  \\
+%   \meta{personname} & |\thesistu@person@|\meta{name}|@name|      \\
+%   \meta{posttitle}  & |\thesistu@person@|\meta{name}|@posttitle| \\
+%   \meta{gender}     & |\thesistu@person@|\meta{name}|@gender|    \\
 %   \bottomrule
 % \end{tabular}
 % \end{center}
-% The command |\vutinfth@person@|\meta{name}|@def| is created to increase source code readability when verifying the existance of a specific person.
-% Furthermore, the command |\vutinfth@person@|\meta{name}|@fullname| returns the person's name together with existing titles and correct whitespace in between.
-% The person's gender is either |\vutinfth@person@male| or |\vutinfth@person@female|, depending on the input.
+% The command |\thesistu@person@|\meta{name}|@def| is created to increase source code readability when verifying the existance of a specific person.
+% Furthermore, the command |\thesistu@person@|\meta{name}|@fullname| returns the person's name together with existing titles and correct whitespace in between.
+% The person's gender is either |\thesistu@person@male| or |\thesistu@person@female|, depending on the input.
 % See Section~\ref{sec:impl:data:declarations} for examples.
 %
 % \DescribeMacro{\AddLanguage}
@@ -648,12 +652,12 @@
 %
 % \subsubsection{Persons}
 %
-% \begin{macro}{\vutinfth@person@male}
-% \begin{macro}{\vutinfth@person@female}
+% \begin{macro}{\thesistu@person@male}
+% \begin{macro}{\thesistu@person@female}
 % Two genders are differentiated for each person: |male| and |female|.
 %    \begin{macrocode}
-\newcommand{\vutinfth@person@male}{male}%
-\newcommand{\vutinfth@person@female}{female}%
+\newcommand{\thesistu@person@male}{male}%
+\newcommand{\thesistu@person@female}{female}%
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -663,29 +667,29 @@
 % Convenience macros to determine the gender of a person.
 %    \begin{macrocode}
 \newcommand{\ifmale}[2]{%
-  \ifcsstring{vutinfth@person@#1@gender}{\vutinfth@person@male}{#2}{}%
+  \ifcsstring{thesistu@person@#1@gender}{\thesistu@person@male}{#2}{}%
 }%
 \newcommand{\iffemale}[2]{%
-  \ifcsstring{vutinfth@person@#1@gender}{\vutinfth@person@female}{#2}{}%
+  \ifcsstring{thesistu@person@#1@gender}{\thesistu@person@female}{#2}{}%
 }%
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
 %
-% \begin{macro}{\vutinfth@def@person}
+% \begin{macro}{\thesistu@def@person}
 % \changes{v1.4}{2015/08/01}{Added comma to separate posttitle.}
 % Creates the internal storage for a person's name, titles and gender.
 %    \begin{macrocode}
-\newcommand{\vutinfth@def@person}[5]{%
-  \@namedef{vutinfth@person@#1@def}{}%
-  \@namedef{vutinfth@person@#1@pretitle}{#2}%
-  \@namedef{vutinfth@person@#1@name}{#3}%
-  \@namedef{vutinfth@person@#1@posttitle}{#4}%
-  \ifdefstring{\vutinfth@person@male}{#5}{%
-    \@namedef{vutinfth@person@#1@gender}{\vutinfth@person@male}%
+\newcommand{\thesistu@def@person}[5]{%
+  \@namedef{thesistu@person@#1@def}{}%
+  \@namedef{thesistu@person@#1@pretitle}{#2}%
+  \@namedef{thesistu@person@#1@name}{#3}%
+  \@namedef{thesistu@person@#1@posttitle}{#4}%
+  \ifdefstring{\thesistu@person@male}{#5}{%
+    \@namedef{thesistu@person@#1@gender}{\thesistu@person@male}%
   }{}%
-  \ifdefstring{\vutinfth@person@female}{#5}{%
-    \@namedef{vutinfth@person@#1@gender}{\vutinfth@person@female}%
+  \ifdefstring{\thesistu@person@female}{#5}{%
+    \@namedef{thesistu@person@#1@gender}{\thesistu@person@female}%
   }{}%
 %    \end{macrocode}
 % For the full name, additional spaces have to be inserted depending on the presence of pre- or posttitles.
@@ -1213,12 +1217,16 @@
 \CreatePolylingual[
   english=Registration Number,
   naustrian=Matrikelnummer]{Registrationnumber}%
+% \changes{v2.0}{2016/09/21}{added setfaculty setuniversity setinstitut}  
 \CreatePolylingual[
-  english=to the Faculty of Informatics,
-  naustrian=an der Fakult\"at f\"ur Informatik]{faculty}%
+  english=to the Faculty of ,
+  naustrian=an der Fakult\"at f\"ur ]{facultytext}%
 \CreatePolylingual[
-  english=at the TU Wien,
-  naustrian=der Technischen Universit\"at Wien]{university}%
+  english=at the ,
+  naustrian=der ]{universitytext}%
+\CreatePolylingual[
+  english= at the ,
+  naustrian= am ]{instituttext}%
 \CreatePolylingual[
   english=Assistance,
   naustrian=Mitwirkung]{Assistance}%
@@ -1346,6 +1354,35 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \changes{v2.1}{2016/09/21}{added setuniversity, setfaculty, setinstitut}
+%
+% \begin{macro}{\setuniversity}
+% Sets the university name.
+%    \begin{macrocode}
+\newcommand{\setuniversity}[2]{%
+  \CreatePolylingual[english=#1,naustrian=#2]{university}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\setfaculty}
+% Sets the faculty name.
+%    \begin{macrocode}
+\newcommand{\setfaculty}[2]{%
+  \CreatePolylingual[english=#1,naustrian=#2]{faculty}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\setinstitut}
+% Sets the institut name.
+%    \begin{macrocode}
+\newcommand{\setinstitut}[2]{%
+  \CreatePolylingual[english=#1,naustrian=#2]{institut}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \subsection{Layout}
 %
@@ -1425,6 +1462,7 @@
     \hspace*{\thesistu@logo@offset@x}%
     \raisebox{\thesistu@logo@offset@y}{%
       \includegraphics[scale=1]{TU_INF_Logo_gray}%
+%%	  \includegraphics[scale=1]{\thesistu@logo@image}%
     }%
   \end{minipage}%
 }%
@@ -1684,7 +1722,7 @@
   \begin{SFFont}{phv}%
     \sffamily
     {\centering
-      \vspace*{1.2cm}\par
+      \vspace*{0.8cm}\par
 %    \end{macrocode}
 % Title and subtitle are bottom aligned and grow upwards.
 %    \begin{macrocode}
@@ -1729,11 +1767,15 @@
     }%
     \thesistu@bigskip\thesistu@bigskip
     \ifgraduate{\ifphd{\vspace*{-8mm}}}%
-    \begin{minipage}[b][1.6cm][c]{\textwidth}%
+    \begin{minipage}[b][1.8cm][c]{\textwidth}%
       \thesistu@normalsize%
-      \thesistu@polylingual@faculty\par
-      \thesistu@polylingual@university
-    \end{minipage}\par
+	  \vspace{1mm}
+% \changes{v2.1}{2016/09/21}{added}
+      \thesistu@polylingual@facultytext \space \thesistu@polylingual@faculty\\
+	  \thesistu@polylingual@instituttext \space \thesistu@polylingual@institut\\
+      \thesistu@polylingual@universitytext \space \thesistu@polylingual@university\\
+    \end{minipage}
+	\vspace{1mm}
     \AdvisorBlock\par
 %    \end{macrocode}
 % Add stretchable glue between the advisor block and the signatures.

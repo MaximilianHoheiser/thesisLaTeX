@@ -4,7 +4,7 @@
 %===============================================================================================================
 %%LaTeX relevant commands
 
-\documentclass[final]{vutinfth} % Remove option 'final' to obtain debug information.
+\documentclass[final]{thesistu} % Remove option 'final' to obtain debug information.
 %atention draft only links images, but doesnt diplay them [draft,final]
 
 % Load packages to allow in- and output of non-ASCII characters.
@@ -73,6 +73,12 @@
 %===========================================================================================================
 %% Thesisdatainput
 
+
+%university information
+\setuniversity{University Name}{Universitaets Name} %if both englisch and german titlepages are used, both must be supplyed
+\setfaculty{Faculty}{Fakultaet} 
+
+
 % Set persons with 4 arguments:
 %  {title before name}{name}{title after name}{gender}
 %  where both titles are optional (i.e. can be given as empty brackets {}).
@@ -116,10 +122,10 @@
 %\setthesis{phd-school} % Deactivate non-English title pages (see below)
 
 % For bachelor and master:
-\setcurriculum{Media Informatics and Visual Computing}{Medieninformatik und Visual Computing} % Sets the English and German name of the curriculum.
-%\setfaculty{faculty}{Fakultät} %Sets the Englisch and German name of the Faculty
-%\setinstitut{institut}{Insitut} %Sets the Englisch and German name of the Institut
-
+\setcurriculum{Curriculum}{Kurrikulum} % Sets the English and German name of the curriculum.
+\setuniversity{University Name}{Universitaets Name} %Sets the Englisch and German name of the University
+\setfaculty{Faculty}{Fakultaet} %Sets the Englisch and German name of the Faculty
+\setinstitut{Institut}{Insitut} %Sets the Englisch and German name of the Institut
 
 % For dissertations at the PhD School:
 \setfirstreviewerdata{Affiliation, Country}
