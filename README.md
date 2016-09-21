@@ -1,5 +1,5 @@
 #ThesisTu 
-![](http://img.shields.io/badge/_build status_-_pass-brightgreen.svg) ![]( http://img.shields.io/badge/_dependencies_-__none-blue.svg)
+![](http://img.shields.io/badge/ build status - pass-brightgreen.svg) ![]( http://img.shields.io/badge/ dependencies - none-blue.svg)
 
 
 ##Description
