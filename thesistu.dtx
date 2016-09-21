@@ -1,6 +1,6 @@
 % \iffalse meta-comment
 %
-%% thesisLaTeX.dtx
+%% thesistu.dtx
 %% Copyright (C) 2016-     by Maximilian Hoheiser <maximilian.hoheiser@student.tuwien.ac.at>
 %
 % This work may be distributed and/or modified under the
@@ -15,18 +15,18 @@
 %
 % The Current Maintainer of this work is Maximilian Hoheiser.
 %
-% This work consists of the files thesisLaTeX.dtx and thesisLaTeX.ins
-% and the derived file thesisLaTeX.cls.
+% This work consists of the files thesistu.dtx and thesistu.ins
+% and the derived file thesistu.cls.
 % This work also consists of the file intro.tex.
 %
 % \fi
 %
 % \iffalse
 %<*driver>
-\ProvidesFile{thesisLaTeX.dtx}
+\ProvidesFile{thesistu.dtx}
 %</driver>
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
-%<class>\ProvidesClass{thesisLaTeX}
+%<class>\ProvidesClass{thesistu}
 %<*class>
     [2016/09/01 v0.1 TU Wien Faculty of Physics thesis template]
 %</class>
@@ -42,7 +42,7 @@
 \CodelineIndex
 \RecordChanges
 \begin{document}
-	\DocInput{thesisLaTeX.dtx}
+	\DocInput{thesistu.dtx}
 \end{document}
 %</driver>
 % \fi
@@ -75,7 +75,7 @@
 % \changes{v1.5}{2016/01/17}{Updated name of university to `TU Wien'.}
 % \changes{v2.01}{2016/09/01}{Pre-release version Max}
 %
-% \GetFileInfo{thesisLaTeX.dtx}
+% \GetFileInfo{thesistu.dtx}
 %
 % \DoNotIndex{\DeclareOption,\LoadClass,\PassOptionsToClass,\ProcessOptions,\RequirePackage}
 % \DoNotIndex{\f@family}
@@ -89,8 +89,8 @@
 %
 % \newcommand{\ispoly}{\textsuperscript{P}}
 %
-% \title{The \textsf{thesisLaTeX} class\thanks{This document
-%   corresponds to \textsf{thesisLaTeX}~\fileversion, dated \filedate.}}
+% \title{The \textsf{thesistu} class\thanks{This document
+%   corresponds to \textsf{thesistu}~\fileversion, dated \filedate.}}
 % \author{Maximilian Hoheiser \\ \texttt{maximilian.hoheiser@student.tuwien.ac.at}}
 %
 % \maketitle
@@ -126,7 +126,7 @@
 % \section{Usage for Document Authors}
 % \label{sec:user}
 %
-% This section contains relevant information for authors of theses that are based on the |thesisLaTeX| document class.
+% This section contains relevant information for authors of theses that are based on the |thesistu| document class.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \subsection{Data}
@@ -196,7 +196,7 @@
 % \DescribeMacro{\setthirdassistant}
 % \DescribeMacro{\setfirstreviewer}
 % \DescribeMacro{\setsecondreviewer}
-% All commands in this section are called with four mandatory arguments, e.g., as |\command|\marg{pretitle}\marg{name}\marg{posttitle}\marg{gender}, where \meta{name} defines both the first name(s) and family name(s) of the person. A title that is placed before the name is assigned with \meta{pretitle}, while a trailing title is given with \meta{posttitle}. Both \meta{pretitle} and \meta{posttitle} can be left empty, to indicate an absence of such a title; the insertion of appropriate glue between titles and names is handled by the |thesisLaTeX| class. The declaration of the persons gender via \meta{gender} allows the use of gender-specific terms in languages that support them, e.g., German. The possible options for \meta{gender} are |male| and |female| (see Section~\ref{sec:user:data:list}). The following persons can be set:
+% All commands in this section are called with four mandatory arguments, e.g., as |\command|\marg{pretitle}\marg{name}\marg{posttitle}\marg{gender}, where \meta{name} defines both the first name(s) and family name(s) of the person. A title that is placed before the name is assigned with \meta{pretitle}, while a trailing title is given with \meta{posttitle}. Both \meta{pretitle} and \meta{posttitle} can be left empty, to indicate an absence of such a title; the insertion of appropriate glue between titles and names is handled by the |thesistu| class. The declaration of the persons gender via \meta{gender} allows the use of gender-specific terms in languages that support them, e.g., German. The possible options for \meta{gender} are |male| and |female| (see Section~\ref{sec:user:data:list}). The following persons can be set:
 % \begin{center}
 % \begin{tabular}{lllc}
 %   \toprule
@@ -392,7 +392,7 @@
 % \section{Usage for Class Writers}
 % \label{sec:class}
 %
-% To accomodate shifting requirements, the |thesisLaTeX| class provides various convenience functions that allow the modification and extension of its functionality.
+% To accomodate shifting requirements, the |thesistu| class provides various convenience functions that allow the modification and extension of its functionality.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \subsection{Data}
@@ -432,10 +432,10 @@
 % \DescribeMacro{\AddLanguage}
 % Used as |\AddLanguage|\marg{lang}, it enables the language \meta{lang} to by used by polylingual expressions.
 % \meta{lang} has to be chosed from the languages of the |babel| package that is used by this class.
-% Currently, |thesisLaTeX| uses two languages, i.e., |english| for English expressions and |naustrian| for German expressions.
+% Currently, |thesistu| uses two languages, i.e., |english| for English expressions and |naustrian| for German expressions.
 %
 % \DescribeMacro{\CreatePolylingual}
-% Used as |\CreatePolylingual|\oarg{expressions}\marg{name}, it generates a command |\thesisLaTeX@polylingual@|\meta{name} that selects the approriate expression based on the current language at the time of use.
+% Used as |\CreatePolylingual|\oarg{expressions}\marg{name}, it generates a command |\thesistu@polylingual@|\meta{name} that selects the approriate expression based on the current language at the time of use.
 % The argument \meta{expressions} is a list of elements of the form \meta{expr$_i$}, where each element defines the expression for a valid language, e.g., \meta{lang$_i$}=\meta{text$_i$}.
 % \meta{lang$_i$} has to be chosen from the languages that were defined via |\AddLanguage|.
 % As a convention, text that needs to start with an uppercase letter is assigned to a name that starts with an uppercase letter.
@@ -498,7 +498,7 @@
 %
 % \subsubsection{Loaded Class and Packages}
 %
-% The |thesisLaTeX| class is based on the |memoir| class.
+% The |thesistu| class is based on the |memoir| class.
 %    \begin{macrocode}
 \LoadClass[a4paper,11pt]{memoir}%
 \chapterstyle{veelo}%
@@ -538,10 +538,10 @@
 %    \begin{macrocode}
 \newcommand{\ifestrequal}[4]{%
   \begingroup
-    \edef\thesisLaTeX@tempa{{#1}}%
-    \edef\thesisLaTeX@tempb{{#2}}%
+    \edef\thesistu@tempa{{#1}}%
+    \edef\thesistu@tempb{{#2}}%
     \expandafter\expandafter\expandafter\ifstrequal
-      \expandafter\thesisLaTeX@tempa\thesisLaTeX@tempb{#3}{#4}%
+      \expandafter\thesistu@tempa\thesistu@tempb{#3}{#4}%
   \endgroup
 }%
 %    \end{macrocode}
@@ -549,20 +549,20 @@
 %
 % \subsubsection{Fonts}
 %
-% \begin{macro}{\thesisLaTeX@HUGE}
-% \begin{macro}{\thesisLaTeX@huge}
-% \begin{macro}{\thesisLaTeX@LARGE}
-% \begin{macro}{\thesisLaTeX@Large}
-% \begin{macro}{\thesisLaTeX@large}
-% \begin{macro}{\thesisLaTeX@normalsize}
+% \begin{macro}{\thesistu@HUGE}
+% \begin{macro}{\thesistu@huge}
+% \begin{macro}{\thesistu@LARGE}
+% \begin{macro}{\thesistu@Large}
+% \begin{macro}{\thesistu@large}
+% \begin{macro}{\thesistu@normalsize}
 % Initializes the font sizes.
 %    \begin{macrocode}
-\newcommand{\thesisLaTeX@HUGE}{\fontsize{30}{34}\selectfont}%
-\newcommand{\thesisLaTeX@huge}{\fontsize{20}{23}\selectfont}%
-\newcommand{\thesisLaTeX@LARGE}{\fontsize{17}{22}\selectfont}%
-\newcommand{\thesisLaTeX@Large}{\fontsize{14}{18}\selectfont}%
-\newcommand{\thesisLaTeX@large}{\fontsize{12}{14.5}\selectfont}%
-\newcommand{\thesisLaTeX@normalsize}{\fontsize{11}{13.6}\selectfont}%
+\newcommand{\thesistu@HUGE}{\fontsize{30}{34}\selectfont}%
+\newcommand{\thesistu@huge}{\fontsize{20}{23}\selectfont}%
+\newcommand{\thesistu@LARGE}{\fontsize{17}{22}\selectfont}%
+\newcommand{\thesistu@Large}{\fontsize{14}{18}\selectfont}%
+\newcommand{\thesistu@large}{\fontsize{12}{14.5}\selectfont}%
+\newcommand{\thesistu@normalsize}{\fontsize{11}{13.6}\selectfont}%
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -576,22 +576,22 @@
 %    \begin{macrocode}
 \newenvironment{SFFont}[1]{%
 %    \end{macrocode}
-% Stores the current sans serif font in |\thesisLaTeX@f@family@tmp| and changes to the given sans serif font.
+% Stores the current sans serif font in |\thesistu@f@family@tmp| and changes to the given sans serif font.
 %    \begin{macrocode}
   \begingroup
     \sffamily
-    \global\let\thesisLaTeX@f@family@tmp=\f@family
+    \global\let\thesistu@f@family@tmp=\f@family
   \endgroup
   \renewcommand{\sfdefault}{#1}%
 %    \end{macrocode}
 % In case the outer scope is already sans serif, the new font has to be activated.
 %    \begin{macrocode}
-  \ifdefstrequal{\f@family}{\thesisLaTeX@f@family@tmp}{\sffamily}{}%
+  \ifdefstrequal{\f@family}{\thesistu@f@family@tmp}{\sffamily}{}%
 }{%
 %    \end{macrocode}
 % The scope of the font change is the environment itself. Thus, no cleanup code is required in case the outer scope was already sans serif.
 %    \begin{macrocode}
-  \renewcommand{\sfdefault}{\thesisLaTeX@f@family@tmp}%
+  \renewcommand{\sfdefault}{\thesistu@f@family@tmp}%
 }%
 %    \end{macrocode}
 % \end{environment}
@@ -605,31 +605,31 @@
 % Creates the internal storage for the signing date.
 %    \begin{macrocode}
 \newcommand{\setdate}[3]{%
-  \newdate{thesisLaTeX@date@signing}{#1}{#2}{#3}%
+  \newdate{thesistu@date@signing}{#1}{#2}{#3}%
 }%
 %    \end{macrocode}
 % \end{macro}
 %
 % \subsubsection{Textual Data}
 %
-% \begin{macro}{\thesisLaTeX@def@data}
+% \begin{macro}{\thesistu@def@data}
 % Creates the internal storage for simple data entries.
 %    \begin{macrocode}
-\newcommand{\thesisLaTeX@def@data}[2]{%
-  \@namedef{thesisLaTeX@data@#1@def}{}%
-  \@namedef{thesisLaTeX@data@#1}{#2}%
+\newcommand{\thesistu@def@data}[2]{%
+  \@namedef{thesistu@data@#1@def}{}%
+  \@namedef{thesistu@data@#1}{#2}%
 }%
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\thesisLaTeX@def@data@invalid}
+% \begin{macro}{\thesistu@def@data@invalid}
 % Initializes the internal storage with error messages.
 %    \begin{macrocode}
-\newcommand{\thesisLaTeX@def@data@invalid}[2]{%
-  \@namedef{thesisLaTeX@data@#1@error}{%
-    \ClassError{thesisLaTeX}{No #2 issued}{Set #1 with #2.}%
+\newcommand{\thesistu@def@data@invalid}[2]{%
+  \@namedef{thesistu@data@#1@error}{%
+    \ClassError{thesistu}{No #2 issued}{Set #1 with #2.}%
   }%
-  \@namedef{thesisLaTeX@data@#1}{\@nameuse{thesisLaTeX@data@#1@error}}%
+  \@namedef{thesistu@data@#1}{\@nameuse{thesistu@data@#1@error}}%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -639,9 +639,9 @@
 %    \begin{macrocode}
 \newcommand{\CreateData}[1]{%
   \@namedef{set#1}##1{%
-    \thesisLaTeX@def@data{#1}{##1}%
+    \thesistu@def@data{#1}{##1}%
   }%
-  \thesisLaTeX@def@data@invalid{#1}{\string\set#1}%
+  \thesistu@def@data@invalid{#1}{\string\set#1}%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -692,26 +692,26 @@
 %    \begin{macrocode}
   \ifstrempty{#3}{%
     \ifstrempty{#2}{%
-      \@namedef{thesisLaTeX@person@#1@fullname}{#4}%
+      \@namedef{thesistu@person@#1@fullname}{#4}%
     }{%
       \ifstrempty{#4}{%
-        \@namedef{thesisLaTeX@person@#1@fullname}{#2}%
+        \@namedef{thesistu@person@#1@fullname}{#2}%
       }{%
-        \@namedef{thesisLaTeX@person@#1@fullname}{#2 #4}%
+        \@namedef{thesistu@person@#1@fullname}{#2 #4}%
       }%
     }%
   }{%
     \ifstrempty{#2}{%
       \ifstrempty{#4}{%
-        \@namedef{thesisLaTeX@person@#1@fullname}{#3}%
+        \@namedef{thesistu@person@#1@fullname}{#3}%
       }{%
-        \@namedef{thesisLaTeX@person@#1@fullname}{#3, #4}%
+        \@namedef{thesistu@person@#1@fullname}{#3, #4}%
       }%
     }{%
       \ifstrempty{#4}{%
-        \@namedef{thesisLaTeX@person@#1@fullname}{#2 #3}%
+        \@namedef{thesistu@person@#1@fullname}{#2 #3}%
       }{%
-        \@namedef{thesisLaTeX@person@#1@fullname}{#2 #3, #4}%
+        \@namedef{thesistu@person@#1@fullname}{#2 #3, #4}%
       }%
     }%
   }%
@@ -719,23 +719,23 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\thesisLaTeX@def@person@invalid}
+% \begin{macro}{\thesistu@def@person@invalid}
 % Initializes the internal storage with error messages.
 %    \begin{macrocode}
-\newcommand{\thesisLaTeX@def@person@invalid}[2]{%
-  \@namedef{thesisLaTeX@person@#1@error}{%
-    \ClassError{thesisLaTeX}{No #2 issued}{Set #1 with #2.}%
+\newcommand{\thesistu@def@person@invalid}[2]{%
+  \@namedef{thesistu@person@#1@error}{%
+    \ClassError{thesistu}{No #2 issued}{Set #1 with #2.}%
   }%
-  \@namedef{thesisLaTeX@person@#1@name}{%
-    \@nameuse{thesisLaTeX@person@#1@error}}%
-  \@namedef{thesisLaTeX@person@#1@pretitle}{%
-    \@nameuse{thesisLaTeX@person@#1@error}}%
-  \@namedef{thesisLaTeX@person@#1@posttitle}{%
-    \@nameuse{thesisLaTeX@person@#1@error}}%
-  \@namedef{thesisLaTeX@person@#1@gender}{%
-    \@nameuse{thesisLaTeX@person@#1@error}}%
-  \@namedef{thesisLaTeX@person@#1@fullname}{%
-    \@nameuse{thesisLaTeX@person@#1@error}}%
+  \@namedef{thesistu@person@#1@name}{%
+    \@nameuse{thesistu@person@#1@error}}%
+  \@namedef{thesistu@person@#1@pretitle}{%
+    \@nameuse{thesistu@person@#1@error}}%
+  \@namedef{thesistu@person@#1@posttitle}{%
+    \@nameuse{thesistu@person@#1@error}}%
+  \@namedef{thesistu@person@#1@gender}{%
+    \@nameuse{thesistu@person@#1@error}}%
+  \@namedef{thesistu@person@#1@fullname}{%
+    \@nameuse{thesistu@person@#1@error}}%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -745,9 +745,9 @@
 %    \begin{macrocode}
 \newcommand{\CreatePerson}[1]{%
   \@namedef{set#1}##1##2##3##4{%
-    \thesisLaTeX@def@person{#1}{##1}{##2}{##3}{##4}%
+    \thesistu@def@person{#1}{##1}{##2}{##3}{##4}%
   }%
-  \thesisLaTeX@def@person@invalid{#1}{\string\set#1}%
+  \thesistu@def@person@invalid{#1}{\string\set#1}%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -761,42 +761,42 @@
 %    \begin{macrocode}
 \newcommand{\AddLanguage}[1]{%
 %    \end{macrocode}
-% First, the key for the current language, given by its name in the |babel| package, is created. Keys of the |keyval| package are internally stored as |KV@|family|@|keyname, where we use |thesisLaTeX| as family name and the argument as key name. The value that is given to this key as part of a function argument is assigned to a temporary storage.
+% First, the key for the current language, given by its name in the |babel| package, is created. Keys of the |keyval| package are internally stored as |KV@|family|@|keyname, where we use |thesistu| as family name and the argument as key name. The value that is given to this key as part of a function argument is assigned to a temporary storage.
 %    \begin{macrocode}
-  \@namedef{KV@thesisLaTeX@#1}##1{%
-    \@namedef{thesisLaTeX@current@#1}{##1}%
+  \@namedef{KV@thesistu@#1}##1{%
+    \@namedef{thesistu@current@#1}{##1}%
   }%
 %    \end{macrocode}
 % The key value is initialized as empty.
 %    \begin{macrocode}
-  \@nameuse{KV@thesisLaTeX@#1}{}%
+  \@nameuse{KV@thesistu@#1}{}%
 %    \end{macrocode}
 % The transfer from temporary to permanent storage is achieved by adding code to the already existing transfer routine. This causes each new language to issue the transfer for the previously defined language.
 %    \begin{macrocode}
-  \ifundef{\thesisLaTeX@allocate@polylingual}{%
+  \ifundef{\thesistu@allocate@polylingual}{%
 %    \end{macrocode}
 % Define the transfer function, if it has not been defined so far.
 %    \begin{macrocode}
-    \newcommand{\thesisLaTeX@allocate@polylingual}[1]{\@empty}%
+    \newcommand{\thesistu@allocate@polylingual}[1]{\@empty}%
   }{}%
 %    \end{macrocode}
 % Store the current transfer function via |\let| to allow recursion.
 %    \begin{macrocode}
-  \@namelet{thesisLaTeX@allocate@polylingual@#1}%
-    \thesisLaTeX@allocate@polylingual
+  \@namelet{thesistu@allocate@polylingual@#1}%
+    \thesistu@allocate@polylingual
 %    \end{macrocode}
 % Define the transfer function to permanent storage.
 %    \begin{macrocode}
-  \renewcommand{\thesisLaTeX@allocate@polylingual}[1]{%
+  \renewcommand{\thesistu@allocate@polylingual}[1]{%
 %    \end{macrocode}
 % Call the transfer routine of the previously defined language.
 %    \begin{macrocode}
-    \@nameuse{thesisLaTeX@allocate@polylingual@#1}{##1}%
+    \@nameuse{thesistu@allocate@polylingual@#1}{##1}%
 %    \end{macrocode}
 % To define the permanent storage, |\@namexdef| is used the definition's scope has to be global.
 %    \begin{macrocode}
-    \@namexdef{thesisLaTeX@##1@#1}{%
-      \ifcsempty{thesisLaTeX@current@#1}{%
+    \@namexdef{thesistu@##1@#1}{%
+      \ifcsempty{thesistu@current@#1}{%
 %    \end{macrocode}
 % In draft mode we mark unassigned languages, i.e., polylingual expression that were not defined for a language that is in use when the polylingual expression is called.
 %    \begin{macrocode}
@@ -809,36 +809,36 @@
 %    \end{macrocode}
 % The use of |\@namexdef| expands the content of the temporary storage before assigning it to the permanent one.
 %    \begin{macrocode}
-        \@nameuse{thesisLaTeX@current@#1}%
+        \@nameuse{thesistu@current@#1}%
       }%
     }%
   }%
 %    \end{macrocode}
 % At time of usage, the language, which is given as an argument, is checked against the currently active language.
 %    \begin{macrocode}
-  \ifundef{\thesisLaTeX@selectlanguage@polylingual}{%
+  \ifundef{\thesistu@selectlanguage@polylingual}{%
 %    \end{macrocode}
 % Define the language selection function, if it has not been defined so far.
 %    \begin{macrocode}
-      \newcommand{\thesisLaTeX@selectlanguage@polylingual}[1]{\@empty}%
+      \newcommand{\thesistu@selectlanguage@polylingual}[1]{\@empty}%
   }{}%
 %    \end{macrocode}
 % Store the current selection function via |\let| to allow recursion.
 %    \begin{macrocode}
-  \@namelet{thesisLaTeX@selectlanguage@polylingual@#1}%
-    \thesisLaTeX@selectlanguage@polylingual
+  \@namelet{thesistu@selectlanguage@polylingual@#1}%
+    \thesistu@selectlanguage@polylingual
 %    \end{macrocode}
 % Define the selection function.
 %    \begin{macrocode}
-  \renewcommand{\thesisLaTeX@selectlanguage@polylingual}[1]{%
+  \renewcommand{\thesistu@selectlanguage@polylingual}[1]{%
 %    \end{macrocode}
 % Call the selection routine of the previously defined language.
 %    \begin{macrocode}
-    \@nameuse{thesisLaTeX@selectlanguage@polylingual@#1}{##1}%
+    \@nameuse{thesistu@selectlanguage@polylingual@#1}{##1}%
 %    \end{macrocode}
 % The currently active language is given by |\languagename|. If it matches the language, which was supplied as the argument, the content of the current permanent storage is returned.
 %    \begin{macrocode}
-    \ifdefstring{\languagename}{#1}{\@nameuse{thesisLaTeX@##1@#1}}{}%
+    \ifdefstring{\languagename}{#1}{\@nameuse{thesistu@##1@#1}}{}%
   }%
 }%
 %    \end{macrocode}
@@ -850,33 +850,33 @@
 \newcommand{\CreatePolylingual}[2][]{%
   \begingroup
 %    \end{macrocode}
-% The key-value pairs of the optional argument define the text that is returned for the respective languages. We use |thesisLaTeX| as the family name for the keys.
+% The key-value pairs of the optional argument define the text that is returned for the respective languages. We use |thesistu| as the family name for the keys.
 %    \begin{macrocode}
-    \setkeys{thesisLaTeX}{#1}%
+    \setkeys{thesistu}{#1}%
 %    \end{macrocode}
 % Each key was already assigned a temporary storage, whose content has to be transfered to permanent storage.
 %    \begin{macrocode}
-    \thesisLaTeX@allocate@polylingual{#2}%
+    \thesistu@allocate@polylingual{#2}%
   \endgroup
 %    \end{macrocode}
 % The mandatory argument \marg{arg} is used to define the macro that returns the appropriate text for the currently active language.
 %    \begin{macrocode}
-  \@namedef{thesisLaTeX@polylingual@#2}{%
-    \thesisLaTeX@selectlanguage@polylingual{#2}}%
+  \@namedef{thesistu@polylingual@#2}{%
+    \thesistu@selectlanguage@polylingual{#2}}%
 }%
 %    \end{macrocode}
 % \end{macro}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \subsubsection{Thesis Types}
 %
-% \begin{macro}{\thesisLaTeX@thesis@basetype@undergraduate}
-% \begin{macro}{\thesisLaTeX@thesis@basetype@graduate}
+% \begin{macro}{\thesistu@thesis@basetype@undergraduate}
+% \begin{macro}{\thesistu@thesis@basetype@graduate}
 % Two thesis categories are differentiated: |undergraduate| and |graduate|.
 %    \begin{macrocode}
-\newcommand{\thesisLaTeX@thesis@basetype@undergraduate}{%
-  thesisLaTeX@undergraduate}%
-\newcommand{\thesisLaTeX@thesis@basetype@graduate}{%
-  thesisLaTeX@graduate}%
+\newcommand{\thesistu@thesis@basetype@undergraduate}{%
+  thesistu@undergraduate}%
+\newcommand{\thesistu@thesis@basetype@graduate}{%
+  thesistu@graduate}%
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -886,29 +886,29 @@
 % Convenience macros to determine the category of the selected thesis type.
 %    \begin{macrocode}
 \newcommand{\ifundergraduate}[1]{%
-  \ifestrequal{\thesisLaTeX@thesis@basetype}{%
-    \thesisLaTeX@thesis@basetype@undergraduate
+  \ifestrequal{\thesistu@thesis@basetype}{%
+    \thesistu@thesis@basetype@undergraduate
   }{#1}{}%
 }%
 \newcommand{\ifgraduate}[1]{%
-  \ifestrequal{\thesisLaTeX@thesis@basetype}{%
-    \thesisLaTeX@thesis@basetype@graduate
+  \ifestrequal{\thesistu@thesis@basetype}{%
+    \thesistu@thesis@basetype@graduate
   }{#1}{}%
 }%
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
 %
-% \begin{macro}{\thesisLaTeX@thesis@doctortype@doctor}
+% \begin{macro}{\thesistu@thesis@doctortype@doctor}
 % \changes{v1.3}{2014/11/25}{Added to support multiple dissertation types. \issue{4}}
-% \begin{macro}{\thesisLaTeX@thesis@doctortype@phd}
+% \begin{macro}{\thesistu@thesis@doctortype@phd}
 % \changes{v1.3}{2014/11/25}{Added to support multiple dissertation types. \issue{4}}
 % Two doctor thesis categories are differentiated: |doctor| and |phd|, where the latter is for dissertation in the context of the Vienna PhD School of Informatics.
 %    \begin{macrocode}
-\newcommand{\thesisLaTeX@thesis@doctortype@doctor}{%
-  thesisLaTeX@doctor}%
-\newcommand{\thesisLaTeX@thesis@doctortype@phd}{%
-  thesisLaTeX@phd}%
+\newcommand{\thesistu@thesis@doctortype@doctor}{%
+  thesistu@doctor}%
+\newcommand{\thesistu@thesis@doctortype@phd}{%
+  thesistu@phd}%
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -920,40 +920,40 @@
 % Convenience macros to determine the category of the selected doctor thesis type. These need to be nested inside |\ifgraduate| conditions.
 %    \begin{macrocode}
 \newcommand{\ifdoctor}[1]{%
-  \ifestrequal{\thesisLaTeX@thesis@doctortype}{%
-    \thesisLaTeX@thesis@doctortype@doctor
+  \ifestrequal{\thesistu@thesis@doctortype}{%
+    \thesistu@thesis@doctortype@doctor
   }{#1}{}%
 }%
 \newcommand{\ifphd}[1]{%
-  \ifestrequal{\thesisLaTeX@thesis@doctortype}{%
-    \thesisLaTeX@thesis@doctortype@phd
+  \ifestrequal{\thesistu@thesis@doctortype}{%
+    \thesistu@thesis@doctortype@phd
   }{#1}{}%
 }%
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
 %
-% \begin{macro}{\thesisLaTeX@thesis@basetype}
-% \begin{macro}{\thesisLaTeX@thesis@doctortype}
+% \begin{macro}{\thesistu@thesis@basetype}
+% \begin{macro}{\thesistu@thesis@doctortype}
 % \changes{v1.3}{2014/11/25}{Added to support multiple dissertation types. \issue{4}}
-% \begin{macro}{\thesisLaTeX@thesis@thesisname}
-% \begin{macro}{\thesisLaTeX@thesis@degreename}
+% \begin{macro}{\thesistu@thesis@thesisname}
+% \begin{macro}{\thesistu@thesis@degreename}
 % Initialize the thesis category, the type and the specific degree with error messages.
 %    \begin{macrocode}
-\newcommand{\thesisLaTeX@thesis@basetype}{%
-  \ClassError{thesisLaTeX}{No \string\setthesis \space issued}{%
+\newcommand{\thesistu@thesis@basetype}{%
+  \ClassError{thesistu}{No \string\setthesis \space issued}{%
     Set thesis type with \string\setthesis.}%
 }%
-\newcommand{\thesisLaTeX@thesis@doctortype}{%
-  \ClassError{thesisLaTeX}{No \string\setthesis \space issued}{%
+\newcommand{\thesistu@thesis@doctortype}{%
+  \ClassError{thesistu}{No \string\setthesis \space issued}{%
     Set thesis type with \string\setthesis.}%
 }%
-\newcommand{\thesisLaTeX@polylingual@degreename}{%
-  \ClassError{thesisLaTeX}{No \string\setthesis \space issued}{%
+\newcommand{\thesistu@polylingual@degreename}{%
+  \ClassError{thesistu}{No \string\setthesis \space issued}{%
     Set thesis type with \string\setthesis.}%
 }%
-\newcommand{\thesisLaTeX@polylingual@thesisname}{%
-  \ClassError{thesisLaTeX}{No \string\setthesis \space issued}{%
+\newcommand{\thesistu@polylingual@thesisname}{%
+  \ClassError{thesistu}{No \string\setthesis \space issued}{%
     Set thesis type with \string\setthesis.}%
 }%
 %    \end{macrocode}
@@ -962,17 +962,17 @@
 % \end{macro}
 % \end{macro}
 %
-% \begin{macro}{\thesisLaTeX@thesis@bachelor}
-% \begin{macro}{\thesisLaTeX@thesis@master}
-% \begin{macro}{\thesisLaTeX@thesis@doctor}
-% \begin{macro}{\thesisLaTeX@thesis@phd}
+% \begin{macro}{\thesistu@thesis@bachelor}
+% \begin{macro}{\thesistu@thesis@master}
+% \begin{macro}{\thesistu@thesis@doctor}
+% \begin{macro}{\thesistu@thesis@phd}
 % \changes{v1.3}{2014/11/25}{Added to support multiple dissertation types. \issue{4}}
 % Four main thesis types are differentiated: |bachelor|, |master|, |doctor|, and |phd-school|.
 %    \begin{macrocode}
-\newcommand{\thesisLaTeX@thesis@bachelor}{bachelor}%
-\newcommand{\thesisLaTeX@thesis@master}{master}%
-\newcommand{\thesisLaTeX@thesis@doctor}{doctor}%
-\newcommand{\thesisLaTeX@thesis@phd}{phd-school}%
+\newcommand{\thesistu@thesis@bachelor}{bachelor}%
+\newcommand{\thesistu@thesis@master}{master}%
+\newcommand{\thesistu@thesis@doctor}{doctor}%
+\newcommand{\thesistu@thesis@phd}{phd-school}%
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -985,9 +985,9 @@
 % Internal convenience macros.
 %    \begin{macrocode}
 \newcommand{\@setthesisname}[1]{%
-  \renewcommand{\thesisLaTeX@polylingual@thesisname}{#1}}%
+  \renewcommand{\thesistu@polylingual@thesisname}{#1}}%
 \newcommand{\@setdegreename}[1]{%
-  \renewcommand{\thesisLaTeX@polylingual@degreename}{#1}}%
+  \renewcommand{\thesistu@polylingual@degreename}{#1}}%
 \newcommand{\@setgendereddegreename}[2]{%
   \ifmale{author}{\@setdegreename{#1}}%
   \iffemale{author}{\@setdegreename{#2}}%
@@ -1002,69 +1002,69 @@
 % Sets the thesis type.
 %    \begin{macrocode}
 \newcommand{\setthesis}[1]{%
-  \ifdefstring{\thesisLaTeX@thesis@bachelor}{#1}{%
+  \ifdefstring{\thesistu@thesis@bachelor}{#1}{%
 %    \end{macrocode}
 % Initializes |bachelor| thesis type.
 %    \begin{macrocode}
-    \renewcommand{\thesisLaTeX@thesis@basetype}{%
-      \thesisLaTeX@thesis@basetype@undergraduate}%
-    \@setthesisname{\thesisLaTeX@polylingual@BACHELORTHESIS}%
-    \@setdegreename{\thesisLaTeX@polylingual@Bdeg}%
+    \renewcommand{\thesistu@thesis@basetype}{%
+      \thesistu@thesis@basetype@undergraduate}%
+    \@setthesisname{\thesistu@polylingual@BACHELORTHESIS}%
+    \@setdegreename{\thesistu@polylingual@Bdeg}%
   }{}%
-  \ifdefstring{\thesisLaTeX@thesis@master}{#1}{%
+  \ifdefstring{\thesistu@thesis@master}{#1}{%
 %    \end{macrocode}
 % Initializes |master| thesis type.
 %    \begin{macrocode}
-    \renewcommand{\thesisLaTeX@thesis@basetype}{%
-      \thesisLaTeX@thesis@basetype@undergraduate}%
+    \renewcommand{\thesistu@thesis@basetype}{%
+      \thesistu@thesis@basetype@undergraduate}%
     \@setthesisname{%
-      \ClassError{thesisLaTeX}{No \string\setmasterdegree \space issued}{%
+      \ClassError{thesistu}{No \string\setmasterdegree \space issued}{%
         Set masterdegree with \string\setmasterdegree.}%
     }%
     \@setdegreename{%
-      \ClassError{thesisLaTeX}{No \string\setmasterdegree \space issued}{%
+      \ClassError{thesistu}{No \string\setmasterdegree \space issued}{%
         Set master degree with \string\setmasterdegree.}%
     }%
   }{}%
-  \ifdefstring{\thesisLaTeX@thesis@doctor}{#1}{%
+  \ifdefstring{\thesistu@thesis@doctor}{#1}{%
 %    \end{macrocode}
 % Initializes |doctor| thesis type.
 %    \begin{macrocode}
-   \renewcommand{\thesisLaTeX@thesis@basetype}{%
-     \thesisLaTeX@thesis@basetype@graduate}%
-   \renewcommand{\thesisLaTeX@thesis@doctortype}{%
-     \thesisLaTeX@thesis@doctortype@doctor}%
-   \@setthesisname{\thesisLaTeX@polylingual@DOCTORTHESIS}%
+   \renewcommand{\thesistu@thesis@basetype}{%
+     \thesistu@thesis@basetype@graduate}%
+   \renewcommand{\thesistu@thesis@doctortype}{%
+     \thesistu@thesis@doctortype@doctor}%
+   \@setthesisname{\thesistu@polylingual@DOCTORTHESIS}%
    \@setdegreename{%
-     \ClassError{thesisLaTeX}{No \string\setdoctordegree \space issued}{%
+     \ClassError{thesistu}{No \string\setdoctordegree \space issued}{%
        Set doctor degree with \string\setdoctordegree.}%
    }%
   }{}%
-  \ifdefstring{\thesisLaTeX@thesis@phd}{#1}{%
+  \ifdefstring{\thesistu@thesis@phd}{#1}{%
 %    \end{macrocode}
 % Initializes |phd-school| thesis type.
 %    \begin{macrocode}
-   \renewcommand{\thesisLaTeX@thesis@basetype}{%
-     \thesisLaTeX@thesis@basetype@graduate}%
-   \renewcommand{\thesisLaTeX@thesis@doctortype}{%
-     \thesisLaTeX@thesis@doctortype@phd}%
-   \@setthesisname{\thesisLaTeX@polylingual@PHDTHESIS}%
-   \@setdegreename{\thesisLaTeX@polylingual@Pdeg}%
+   \renewcommand{\thesistu@thesis@basetype}{%
+     \thesistu@thesis@basetype@graduate}%
+   \renewcommand{\thesistu@thesis@doctortype}{%
+     \thesistu@thesis@doctortype@phd}%
+   \@setthesisname{\thesistu@polylingual@PHDTHESIS}%
+   \@setdegreename{\thesistu@polylingual@Pdeg}%
   }{}%
 }%
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\thesisLaTeX@thesis@mdeg@dipl}
-% \begin{macro}{\thesisLaTeX@thesis@mdeg@master}
-% \begin{macro}{\thesisLaTeX@thesis@mdeg@rernat}
-% \begin{macro}{\thesisLaTeX@thesis@mdeg@rersocoec}
+% \begin{macro}{\thesistu@thesis@mdeg@dipl}
+% \begin{macro}{\thesistu@thesis@mdeg@master}
+% \begin{macro}{\thesistu@thesis@mdeg@rernat}
+% \begin{macro}{\thesistu@thesis@mdeg@rersocoec}
 % Four master degrees can be selected: |dipl.|, |master|, |rer.nat.|, and\\|rer.soc.oec.|.
 %    \begin{macrocode}
-\newcommand{\thesisLaTeX@thesis@mdeg@dipl}{dipl.}%
-\newcommand{\thesisLaTeX@thesis@mdeg@master}{master}%
-\newcommand{\thesisLaTeX@thesis@mdeg@rernat}{rer.nat.}%
-\newcommand{\thesisLaTeX@thesis@mdeg@rersocoec}{rer.soc.oec.}%
+\newcommand{\thesistu@thesis@mdeg@dipl}{dipl.}%
+\newcommand{\thesistu@thesis@mdeg@master}{master}%
+\newcommand{\thesistu@thesis@mdeg@rernat}{rer.nat.}%
+\newcommand{\thesistu@thesis@mdeg@rersocoec}{rer.soc.oec.}%
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -1075,46 +1075,46 @@
 % Sets the specific master degree.
 %    \begin{macrocode}
 \newcommand{\setmasterdegree}[1]{%
-  \ifdefstring{\thesisLaTeX@thesis@mdeg@dipl}{#1}{%
-    \@setthesisname{\thesisLaTeX@polylingual@DIPLOMATHESIS}%
+  \ifdefstring{\thesistu@thesis@mdeg@dipl}{#1}{%
+    \@setthesisname{\thesistu@polylingual@DIPLOMATHESIS}%
     \@setgendereddegreename{%
-      \thesisLaTeX@polylingual@MdegDiplMale
+      \thesistu@polylingual@MdegDiplMale
     }{%
-      \thesisLaTeX@polylingual@MdegDiplFemale
+      \thesistu@polylingual@MdegDiplFemale
     }%
   }{}%
-  \ifdefstring{\thesisLaTeX@thesis@mdeg@master}{#1}{%
-    \@setthesisname{\thesisLaTeX@polylingual@MASTERTHESIS}%
-    \@setdegreename{\thesisLaTeX@polylingual@MdegMaster}%
+  \ifdefstring{\thesistu@thesis@mdeg@master}{#1}{%
+    \@setthesisname{\thesistu@polylingual@MASTERTHESIS}%
+    \@setdegreename{\thesistu@polylingual@MdegMaster}%
   }{}%
-  \ifdefstring{\thesisLaTeX@thesis@mdeg@rernat}{#1}{%
-    \@setthesisname{\thesisLaTeX@polylingual@MASTERTHESIS}%
+  \ifdefstring{\thesistu@thesis@mdeg@rernat}{#1}{%
+    \@setthesisname{\thesistu@polylingual@MASTERTHESIS}%
     \@setgendereddegreename{%
-      \thesisLaTeX@polylingual@MdegRerNatMale
+      \thesistu@polylingual@MdegRerNatMale
     }{%
-      \thesisLaTeX@polylingual@MdegRerNatFemale
+      \thesistu@polylingual@MdegRerNatFemale
     }%
   }{}%
-  \ifdefstring{\thesisLaTeX@thesis@mdeg@rersocoec}{#1}{%
-    \@setthesisname{\thesisLaTeX@polylingual@MASTERTHESIS}%
+  \ifdefstring{\thesistu@thesis@mdeg@rersocoec}{#1}{%
+    \@setthesisname{\thesistu@polylingual@MASTERTHESIS}%
     \@setgendereddegreename{%
-      \thesisLaTeX@polylingual@MdegRerSocOecMale
+      \thesistu@polylingual@MdegRerSocOecMale
     }{%
-      \thesisLaTeX@polylingual@MdegRerSocOecFemale
+      \thesistu@polylingual@MdegRerSocOecFemale
     }%
   }{}%
 }%
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\thesisLaTeX@thesis@ddeg@rernat}
-% \begin{macro}{\thesisLaTeX@thesis@ddeg@techn}
-% \begin{macro}{\thesisLaTeX@thesis@ddeg@rersocoec}
+% \begin{macro}{\thesistu@thesis@ddeg@rernat}
+% \begin{macro}{\thesistu@thesis@ddeg@techn}
+% \begin{macro}{\thesistu@thesis@ddeg@rersocoec}
 % Three doctor degrees can be selected: |rer.nat.|, |techn.|, and |rer.soc.oec.|.
 %    \begin{macrocode}
-\newcommand{\thesisLaTeX@thesis@ddeg@rernat}{rer.nat.}%
-\newcommand{\thesisLaTeX@thesis@ddeg@techn}{techn.}%
-\newcommand{\thesisLaTeX@thesis@ddeg@rersocoec}{rer.soc.oec.}%
+\newcommand{\thesistu@thesis@ddeg@rernat}{rer.nat.}%
+\newcommand{\thesistu@thesis@ddeg@techn}{techn.}%
+\newcommand{\thesistu@thesis@ddeg@rersocoec}{rer.soc.oec.}%
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -1124,25 +1124,25 @@
 % Sets the specific doctor degree.
 %    \begin{macrocode}
 \newcommand{\setdoctordegree}[1]{%
-  \ifdefstring{\thesisLaTeX@thesis@ddeg@rernat}{#1}{%
+  \ifdefstring{\thesistu@thesis@ddeg@rernat}{#1}{%
     \@setgendereddegreename{%
-      \thesisLaTeX@polylingual@DdegRerNatMale
+      \thesistu@polylingual@DdegRerNatMale
     }{%
-      \thesisLaTeX@polylingual@DdegRerNatFemale
+      \thesistu@polylingual@DdegRerNatFemale
     }%
   }{}%
-  \ifdefstring{\thesisLaTeX@thesis@ddeg@techn}{#1}{%
+  \ifdefstring{\thesistu@thesis@ddeg@techn}{#1}{%
     \@setgendereddegreename{%
-      \thesisLaTeX@polylingual@DdegTechnMale
+      \thesistu@polylingual@DdegTechnMale
     }{%
-      \thesisLaTeX@polylingual@DdegTechnFemale
+      \thesistu@polylingual@DdegTechnFemale
     }%
   }{}%
-  \ifdefstring{\thesisLaTeX@thesis@ddeg@rersocoec}{#1}{%
+  \ifdefstring{\thesistu@thesis@ddeg@rersocoec}{#1}{%
     \@setgendereddegreename{%
-      \thesisLaTeX@polylingual@DdegRerSocOecMale
+      \thesistu@polylingual@DdegRerSocOecMale
     }{%
-      \thesisLaTeX@polylingual@DdegRerSocOecFemale
+      \thesistu@polylingual@DdegRerSocOecFemale
     }%
   }{}%
 }%
@@ -1351,43 +1351,43 @@
 %
 % \subsubsection{Setup}
 %
-% \begin{macro}{\thesisLaTeX@squarebullet}
+% \begin{macro}{\thesistu@squarebullet}
 % Set internal convenience macros.
 %    \begin{macrocode}
 \newcommand{\newsetlength}[2]{%
   \newlength{#1}%
   \setlength{#1}{#2}%
 }%
-\newcommand{\thesisLaTeX@squarebullet}{\rule[0.47ex]{0.4ex}{0.4ex}}%
+\newcommand{\thesistu@squarebullet}{\rule[0.47ex]{0.4ex}{0.4ex}}%
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\thesisLaTeX@tmp@parindent}
-% \begin{macro}{\thesisLaTeX@tmp@baselineskip}
-% \begin{macro}{\thesisLaTeX@tmp@parskip}
+% \begin{macro}{\thesistu@tmp@parindent}
+% \begin{macro}{\thesistu@tmp@baselineskip}
+% \begin{macro}{\thesistu@tmp@parskip}
 % Temporary storage for page layout lengths.
 %    \begin{macrocode}
-\newlength{\thesisLaTeX@tmp@parindent}%
-\newlength{\thesisLaTeX@tmp@baselineskip}%
-\newlength{\thesisLaTeX@tmp@parskip}%
+\newlength{\thesistu@tmp@parindent}%
+\newlength{\thesistu@tmp@baselineskip}%
+\newlength{\thesistu@tmp@parskip}%
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
 % \end{macro}
 %
-% \begin{macro}{\thesisLaTeX@savelayout}
-% \begin{macro}{\thesisLaTeX@restorelayout}
+% \begin{macro}{\thesistu@savelayout}
+% \begin{macro}{\thesistu@restorelayout}
 % Saves and restores relevant page layout lengths.
 %    \begin{macrocode}
-\newcommand{\thesisLaTeX@savelayout}{%
-  \setlength{\thesisLaTeX@tmp@parindent}{\parindent}%
-  \setlength{\thesisLaTeX@tmp@baselineskip}{\baselineskip}%
-  \setlength{\thesisLaTeX@tmp@parskip}{\parskip}%
+\newcommand{\thesistu@savelayout}{%
+  \setlength{\thesistu@tmp@parindent}{\parindent}%
+  \setlength{\thesistu@tmp@baselineskip}{\baselineskip}%
+  \setlength{\thesistu@tmp@parskip}{\parskip}%
 }%
-\newcommand{\thesisLaTeX@restorelayout}{%
-  \setlength{\parindent}{\thesisLaTeX@tmp@parindent}%
-  \setlength{\baselineskip}{\thesisLaTeX@tmp@baselineskip}%
-  \setlength{\parskip}{\thesisLaTeX@tmp@parskip}%
+\newcommand{\thesistu@restorelayout}{%
+  \setlength{\parindent}{\thesistu@tmp@parindent}%
+  \setlength{\baselineskip}{\thesistu@tmp@baselineskip}%
+  \setlength{\parskip}{\thesistu@tmp@parskip}%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -1395,35 +1395,35 @@
 %
 % \subsubsection{Title Page}
 %
-% Initialize the header graphics. The vertical placement of the header graphics on the title pages are given by |\thesisLaTeX@header@placement|, while the composition of the graphical elements are determined by the subsequent lengths, which constitute direct measurements of the graphics. If the header graphics are changed, these values have to be adapted.
+% Initialize the header graphics. The vertical placement of the header graphics on the title pages are given by |\thesistu@header@placement|, while the composition of the graphical elements are determined by the subsequent lengths, which constitute direct measurements of the graphics. If the header graphics are changed, these values have to be adapted.
 %    \begin{macrocode}
-\newsetlength{\thesisLaTeX@header@placement}{-41.49731pt}%
-\newsetlength{\thesisLaTeX@bar@width}{511bp}%
-\newsetlength{\thesisLaTeX@bar@height}{47bp}%
-\newsetlength{\thesisLaTeX@bar@pivot@x}{330.71bp}%
-\newsetlength{\thesisLaTeX@bar@pivot@y}{25.31bp}%
-\newsetlength{\thesisLaTeX@logo@height}{46bp}%
-\newsetlength{\thesisLaTeX@logo@pivot@x}{4.57bp}%
-\newsetlength{\thesisLaTeX@logo@pivot@y}{5.37bp}%
-\newsetlength{\thesisLaTeX@logo@offset@height}{\thesisLaTeX@logo@height
-  + \thesisLaTeX@bar@pivot@y - \thesisLaTeX@logo@pivot@y}%
-\newsetlength{\thesisLaTeX@logo@offset@x}{-\thesisLaTeX@bar@width
-  + \thesisLaTeX@bar@pivot@x - \thesisLaTeX@logo@pivot@x}%
-\newsetlength{\thesisLaTeX@logo@offset@y}{
-  - \thesisLaTeX@bar@pivot@y + \thesisLaTeX@logo@pivot@y}%
+\newsetlength{\thesistu@header@placement}{-41.49731pt}%
+\newsetlength{\thesistu@bar@width}{511bp}%
+\newsetlength{\thesistu@bar@height}{47bp}%
+\newsetlength{\thesistu@bar@pivot@x}{330.71bp}%
+\newsetlength{\thesistu@bar@pivot@y}{25.31bp}%
+\newsetlength{\thesistu@logo@height}{46bp}%
+\newsetlength{\thesistu@logo@pivot@x}{4.57bp}%
+\newsetlength{\thesistu@logo@pivot@y}{5.37bp}%
+\newsetlength{\thesistu@logo@offset@height}{\thesistu@logo@height
+  + \thesistu@bar@pivot@y - \thesistu@logo@pivot@y}%
+\newsetlength{\thesistu@logo@offset@x}{-\thesistu@bar@width
+  + \thesistu@bar@pivot@x - \thesistu@logo@pivot@x}%
+\newsetlength{\thesistu@logo@offset@y}{
+  - \thesistu@bar@pivot@y + \thesistu@logo@pivot@y}%
 %    \end{macrocode}
 %
-% \begin{macro}{\thesisLaTeX@header@titlepage}
+% \begin{macro}{\thesistu@header@titlepage}
 % Initialize header.
 %    \begin{macrocode}
-\newcommand{\thesisLaTeX@header@titlepage}{%
+\newcommand{\thesistu@header@titlepage}{%
   \centering
-  \begin{minipage}[b][\thesisLaTeX@logo@offset@height][t]{%
-      \thesisLaTeX@bar@width
+  \begin{minipage}[b][\thesistu@logo@offset@height][t]{%
+      \thesistu@bar@width
     }%
     \includegraphics{TU_INF_header}%
-    \hspace*{\thesisLaTeX@logo@offset@x}%
-    \raisebox{\thesisLaTeX@logo@offset@y}{%
+    \hspace*{\thesistu@logo@offset@x}%
+    \raisebox{\thesistu@logo@offset@y}{%
       \includegraphics[scale=1]{TU_INF_Logo_gray}%
     }%
   \end{minipage}%
@@ -1431,51 +1431,51 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\thesisLaTeX@footer@titlepage}
+% \begin{macro}{\thesistu@footer@titlepage}
 % Initialize footer.
 %    \begin{macrocode}
-\newcommand{\thesisLaTeX@footer@titlepage}{%
+\newcommand{\thesistu@footer@titlepage}{%
   \centering
   \begin{minipage}{\textwidth}%
-    \centering\thesisLaTeX@normalsize\sffamily
+    \centering\thesistu@normalsize\sffamily
     Technische Universit\"{a}t Wien\\
-    A-1040 Wien \thesisLaTeX@squarebullet\space
-    Karlsplatz 13 \thesisLaTeX@squarebullet\space
-    Tel. +43-1-58801-0 \thesisLaTeX@squarebullet\space
+    A-1040 Wien \thesistu@squarebullet\space
+    Karlsplatz 13 \thesistu@squarebullet\space
+    Tel. +43-1-58801-0 \thesistu@squarebullet\space
     www.tuwien.ac.at%
   \end{minipage}%
 }%
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{thesisLaTeX@pagestyle@titlepage}
+% \begin{macro}{thesistu@pagestyle@titlepage}
 % Generate the title page style.
 %    \begin{macrocode}
-\makepagestyle{thesisLaTeX@pagestyle@titlepage}%
-\makerunningwidth{thesisLaTeX@pagestyle@titlepage}[\textwidth]{%
-  \thesisLaTeX@bar@width}%
-\makeheadposition{thesisLaTeX@pagestyle@titlepage}{%
+\makepagestyle{thesistu@pagestyle@titlepage}%
+\makerunningwidth{thesistu@pagestyle@titlepage}[\textwidth]{%
+  \thesistu@bar@width}%
+\makeheadposition{thesistu@pagestyle@titlepage}{%
   center}{center}{center}{center}%
-\makeevenhead{thesisLaTeX@pagestyle@titlepage}{}{%
-  \thesisLaTeX@header@titlepage}{}%
-\makeoddhead{thesisLaTeX@pagestyle@titlepage}{}{%
-  \thesisLaTeX@header@titlepage}{}%
-\makefootrule{thesisLaTeX@pagestyle@titlepage}{%
-  \thesisLaTeX@pagestyle@titlepagefootrunwidth}{0.5pt}{\footruleskip}%
-\makeevenfoot{thesisLaTeX@pagestyle@titlepage}{}{%
-  \thesisLaTeX@footer@titlepage}{}%
-\makeoddfoot{thesisLaTeX@pagestyle@titlepage}{}{%
-  \thesisLaTeX@footer@titlepage}{}%
+\makeevenhead{thesistu@pagestyle@titlepage}{}{%
+  \thesistu@header@titlepage}{}%
+\makeoddhead{thesistu@pagestyle@titlepage}{}{%
+  \thesistu@header@titlepage}{}%
+\makefootrule{thesistu@pagestyle@titlepage}{%
+  \thesistu@pagestyle@titlepagefootrunwidth}{0.5pt}{\footruleskip}%
+\makeevenfoot{thesistu@pagestyle@titlepage}{}{%
+  \thesistu@footer@titlepage}{}%
+\makeoddfoot{thesistu@pagestyle@titlepage}{}{%
+  \thesistu@footer@titlepage}{}%
 %    \end{macrocode}
 % \end{macro}
 %
 % Set style element specifications.
 %    \begin{macrocode}
-\newsetlength{\thesisLaTeX@bigskipamount}{6mm}%
+\newsetlength{\thesistu@bigskipamount}{6mm}%
 %    \end{macrocode}
 % Helper functions.
 %    \begin{macrocode}
-\newcommand{\thesisLaTeX@bigskip}{\vspace{\thesisLaTeX@bigskipamount}}%
+\newcommand{\thesistu@bigskip}{\vspace{\thesistu@bigskipamount}}%
 %    \end{macrocode}
 %
 % \begin{macro}{\AdvisorBlock}
@@ -1485,29 +1485,29 @@
 \newcommand{\AdvisorBlock}{%
   \ifundergraduate{%
     \begin{minipage}[t][2.5cm][t]{\textwidth}%
-      \thesisLaTeX@normalsize
+      \thesistu@normalsize
       \begin{tabular}{@{}l@{ }l}%
-        \thesisLaTeX@polylingual@Advisor: &
-        \thesisLaTeX@person@advisor@fullname\\
-        \ifdef{\thesisLaTeX@person@firstassistant@def}{%
-          \thesisLaTeX@polylingual@Assistance: &
-          \thesisLaTeX@person@firstassistant@fullname\\
+        \thesistu@polylingual@Advisor: &
+        \thesistu@person@advisor@fullname\\
+        \ifdef{\thesistu@person@firstassistant@def}{%
+          \thesistu@polylingual@Assistance: &
+          \thesistu@person@firstassistant@fullname\\
         }{}%
-        \ifdef{\thesisLaTeX@person@secondassistant@def}{%
-          \ifundef{\thesisLaTeX@person@firstassistant@def}{%
-            \thesisLaTeX@person@firstassistant@error
+        \ifdef{\thesistu@person@secondassistant@def}{%
+          \ifundef{\thesistu@person@firstassistant@def}{%
+            \thesistu@person@firstassistant@error
           }{%
-            & \thesisLaTeX@person@secondassistant@fullname\\
+            & \thesistu@person@secondassistant@fullname\\
           }%
         }{}%
-        \ifdef{\thesisLaTeX@person@thirdassistant@def}{%
-          \ifundef{\thesisLaTeX@person@firstassistant@def}{%
-            \thesisLaTeX@person@firstassistant@error
+        \ifdef{\thesistu@person@thirdassistant@def}{%
+          \ifundef{\thesistu@person@firstassistant@def}{%
+            \thesistu@person@firstassistant@error
           }{%
-            \ifundef{\thesisLaTeX@person@secondassistant@def}{%
-              \thesisLaTeX@person@secondassistant@error
+            \ifundef{\thesistu@person@secondassistant@def}{%
+              \thesistu@person@secondassistant@error
             }{%
-              & \thesisLaTeX@person@thirdassistant@fullname\\
+              & \thesistu@person@thirdassistant@fullname\\
            }%
          }%
        }{}%
@@ -1516,14 +1516,14 @@
   }%
   \ifgraduate{%
     \begin{minipage}[t][1.6cm][t]{\textwidth}%
-      \thesisLaTeX@normalsize
-      \thesisLaTeX@polylingual@Advisor:
-      \thesisLaTeX@person@advisor@fullname
+      \thesistu@normalsize
+      \thesistu@polylingual@Advisor:
+      \thesistu@person@advisor@fullname
       \ifphd{%
-        \ifdef{\thesisLaTeX@person@secondadvisor@def}{%
+        \ifdef{\thesistu@person@secondadvisor@def}{%
           \\
-          \thesisLaTeX@polylingual@Secondadvisor:
-          \thesisLaTeX@person@secondadvisor@fullname
+          \thesistu@polylingual@Secondadvisor:
+          \thesistu@person@secondadvisor@fullname
         }{}%
       }%
     \end{minipage}\par%
@@ -1532,14 +1532,14 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\thesisLaTeX@signature@height}
-% \begin{macro}{\thesisLaTeX@signature@width}
-% \begin{macro}{\thesisLaTeX@placedate@width}
+% \begin{macro}{\thesistu@signature@height}
+% \begin{macro}{\thesistu@signature@width}
+% \begin{macro}{\thesistu@placedate@width}
 % Set lengths of the signature blocks.
 %    \begin{macrocode}
-\newsetlength{\thesisLaTeX@signature@height}{25mm}%
-\newsetlength{\thesisLaTeX@signature@width}{51mm}%
-\newsetlength{\thesisLaTeX@placedate@width}{50mm}%
+\newsetlength{\thesistu@signature@height}{25mm}%
+\newsetlength{\thesistu@signature@width}{51mm}%
+\newsetlength{\thesistu@placedate@width}{50mm}%
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -1549,40 +1549,40 @@
 % Generates a block with signatures and an optional place-date entry. The first argument is optional and adds an entry with date and place |[y]|, or adds corresponding whitespace |[h]| or adds nothing |[n]|, which is also the default value. The second arguments adds a rule and the given text below it, if a text is given, or the corresponding whitespace, if not. The third argument adds a rule and the given text below it, if a text is given.
 %    \begin{macrocode}
 \newcommand{\SignatureFields}[3][n]{%
-  {\thesisLaTeX@normalsize
+  {\thesistu@normalsize
     \ifstrequal{#1}{y}{%
-      \begin{minipage}[b][\thesisLaTeX@signature@height]{%
-          \thesisLaTeX@placedate@width
+      \begin{minipage}[b][\thesistu@signature@height]{%
+          \thesistu@placedate@width
         }%
-        \thesisLaTeX@polylingual@Place,
-        \displaydate{thesisLaTeX@date@signing}\vspace*{\baselineskip}%
+        \thesistu@polylingual@Place,
+        \displaydate{thesistu@date@signing}\vspace*{\baselineskip}%
       \end{minipage}%
       \hfill
     }{}%
     \ifstrequal{#1}{n}{}{}%
     \ifstrequal{#1}{h}{%
-      \hspace*{\thesisLaTeX@placedate@width}%
+      \hspace*{\thesistu@placedate@width}%
       \hfill
     }{}%
     \ifstrempty{#2}{%
-      \hspace*{\thesisLaTeX@signature@width}%
+      \hspace*{\thesistu@signature@width}%
       \hfill
     }{%
-      \begin{minipage}[b][\thesisLaTeX@signature@height]{%
-          \thesisLaTeX@signature@width
+      \begin{minipage}[b][\thesistu@signature@height]{%
+          \thesistu@signature@width
         }%
         \centering
-        \rule{\thesisLaTeX@signature@width}{0.5pt}\\
+        \rule{\thesistu@signature@width}{0.5pt}\\
         #2%
       \end{minipage}%
       \hfill
     }%
     \ifstrempty{#3}{}{%
-      \begin{minipage}[b][\thesisLaTeX@signature@height]{%
-          \thesisLaTeX@signature@width
+      \begin{minipage}[b][\thesistu@signature@height]{%
+          \thesistu@signature@width
         }%
         \centering
-        \rule{\thesisLaTeX@signature@width}{0.5pt}\\
+        \rule{\thesistu@signature@width}{0.5pt}\\
         #3%
       \end{minipage}%
     }%
@@ -1598,22 +1598,22 @@
 \newcommand{\ReviewerBlock}{%
   \ifgraduate{%
     \ifdoctor{%
-      {\thesisLaTeX@normalsize
-        \thesisLaTeX@polylingual@Reviewed\\
+      {\thesistu@normalsize
+        \thesistu@polylingual@Reviewed\\
         \SignatureFields[h]{%
-          \thesisLaTeX@person@firstreviewer@name
+          \thesistu@person@firstreviewer@name
         }{%
-          \thesisLaTeX@person@secondreviewer@name
+          \thesistu@person@secondreviewer@name
         }%
       }%
     }%
     \ifphd{%
-      {\thesisLaTeX@normalsize
-        \thesisLaTeX@polylingual@Reviewers\\
-        \thesisLaTeX@person@firstreviewer@name.
-        \thesisLaTeX@data@firstreviewerdata.\\
-        \thesisLaTeX@person@secondreviewer@name.
-        \thesisLaTeX@data@secondreviewerdata.\\
+      {\thesistu@normalsize
+        \thesistu@polylingual@Reviewers\\
+        \thesistu@person@firstreviewer@name.
+        \thesistu@data@firstreviewerdata.\\
+        \thesistu@person@secondreviewer@name.
+        \thesistu@data@secondreviewerdata.\\
       }%
     }%
   }%
@@ -1627,26 +1627,26 @@
 %    \begin{macrocode}
 \newcommand{\SignatureBlock}{%
   \ifundergraduate{%
-    {\thesisLaTeX@normalsize
+    {\thesistu@normalsize
       \SignatureFields[y]{%
-        \thesisLaTeX@person@author@name
+        \thesistu@person@author@name
       }{%
-        \thesisLaTeX@person@advisor@name
+        \thesistu@person@advisor@name
       }%
     }%
   }%
   \ifgraduate{%
-    {\thesisLaTeX@normalsize
+    {\thesistu@normalsize
       \ifdoctor{%
         \SignatureFields[y]{}{%
-          \thesisLaTeX@person@author@name
+          \thesistu@person@author@name
         }%
       }%
       \ifphd{%
         \SignatureFields[y]{%
-          \thesisLaTeX@person@author@name
+          \thesistu@person@author@name
         }{%
-          \thesisLaTeX@person@advisor@name
+          \thesistu@person@advisor@name
         }%
       }%
     }%
@@ -1661,20 +1661,20 @@
 %   Generates the language-dependant title page. Multiline title and subtitle are supported.
 %    \begin{macrocode}
 \newcommand{\AddTitlePage}{
-  \thispagestyle{thesisLaTeX@pagestyle@titlepage}%
+  \thispagestyle{thesistu@pagestyle@titlepage}%
 %    \end{macrocode}
 % Set a new page geometry where the header separation length (|headsep|) places the header.
 % The actual header height (|head|) has to be large enough to contain the header content otherwise the underlying |memoir| class issues a warning.
 %    \begin{macrocode}
   \newgeometry{%
     left=2.4cm,right=2.4cm,bottom=2.5cm,top=2cm,
-    headsep=\thesisLaTeX@header@placement,
-    head=2\thesisLaTeX@logo@offset@height
+    headsep=\thesistu@header@placement,
+    head=2\thesistu@logo@offset@height
   }%
 %    \end{macrocode}
 % Save the current page layout lengths for later restoration.
 %    \begin{macrocode}
-  \thesisLaTeX@savelayout
+  \thesistu@savelayout
   \setlength{\parindent}{0pt}%
   \setlength{\baselineskip}{13.6pt}%
   \setlength{\parskip}{0pt plus 1pt}%
@@ -1690,49 +1690,49 @@
 %    \begin{macrocode}
       \begin{minipage}[t][5cm][b]{\textwidth}%
         \centering
-        \thesisLaTeX@HUGE{\bfseries\thesisLaTeX@polylingual@Title}\\
+        \thesistu@HUGE{\bfseries\thesistu@polylingual@Title}\\
         \bigskip
-        \thesisLaTeX@huge{\bfseries
-          \ifdef{\thesisLaTeX@polylingual@Subtitle}{%
-            \thesisLaTeX@polylingual@Subtitle}{%
+        \thesistu@huge{\bfseries
+          \ifdef{\thesistu@polylingual@Subtitle}{%
+            \thesistu@polylingual@Subtitle}{%
           }%
         }%
       \end{minipage}\par
-      \thesisLaTeX@bigskip\thesisLaTeX@bigskip
-      {\thesisLaTeX@LARGE\thesisLaTeX@polylingual@thesisname}\par
-      \thesisLaTeX@bigskip
-      {\thesisLaTeX@large\thesisLaTeX@polylingual@submission}\par
-      \thesisLaTeX@bigskip
+      \thesistu@bigskip\thesistu@bigskip
+      {\thesistu@LARGE\thesistu@polylingual@thesisname}\par
+      \thesistu@bigskip
+      {\thesistu@large\thesistu@polylingual@submission}\par
+      \thesistu@bigskip
       \ifundergraduate{%
-        {\thesisLaTeX@LARGE{\bfseries\thesisLaTeX@polylingual@degreename}}\par
-        \thesisLaTeX@bigskip
-        {\thesisLaTeX@large\thesisLaTeX@polylingual@in}\par
-        \thesisLaTeX@bigskip
-        {\thesisLaTeX@Large{\bfseries\thesisLaTeX@polylingual@Curriculum}}\par
+        {\thesistu@LARGE{\bfseries\thesistu@polylingual@degreename}}\par
+        \thesistu@bigskip
+        {\thesistu@large\thesistu@polylingual@in}\par
+        \thesistu@bigskip
+        {\thesistu@Large{\bfseries\thesistu@polylingual@Curriculum}}\par
       }%
       \ifgraduate{%
-        {\thesisLaTeX@LARGE{\bfseries\thesisLaTeX@polylingual@degreename}}\par
+        {\thesistu@LARGE{\bfseries\thesistu@polylingual@degreename}}\par
         \ifphd{%
-          \thesisLaTeX@bigskip
-          {\thesisLaTeX@large\thesisLaTeX@polylingual@within}\par
-          \thesisLaTeX@bigskip
-          {\thesisLaTeX@LARGE{\bfseries\thesisLaTeX@polylingual@School}}\par
+          \thesistu@bigskip
+          {\thesistu@large\thesistu@polylingual@within}\par
+          \thesistu@bigskip
+          {\thesistu@LARGE{\bfseries\thesistu@polylingual@School}}\par
         }%
       }%
-      \thesisLaTeX@bigskip
-      {\thesisLaTeX@large\thesisLaTeX@polylingual@by}\par
-      \thesisLaTeX@bigskip
-      {\thesisLaTeX@Large{\bfseries\thesisLaTeX@person@author@fullname}}\par
+      \thesistu@bigskip
+      {\thesistu@large\thesistu@polylingual@by}\par
+      \thesistu@bigskip
+      {\thesistu@Large{\bfseries\thesistu@person@author@fullname}}\par
       \smallskip
-      {\thesisLaTeX@large\thesisLaTeX@polylingual@Registrationnumber\
-      \thesisLaTeX@data@regnumber}\par
+      {\thesistu@large\thesistu@polylingual@Registrationnumber\
+      \thesistu@data@regnumber}\par
     }%
-    \thesisLaTeX@bigskip\thesisLaTeX@bigskip
+    \thesistu@bigskip\thesistu@bigskip
     \ifgraduate{\ifphd{\vspace*{-8mm}}}%
     \begin{minipage}[b][1.6cm][c]{\textwidth}%
-      \thesisLaTeX@normalsize%
-      \thesisLaTeX@polylingual@faculty\par
-      \thesisLaTeX@polylingual@university
+      \thesistu@normalsize%
+      \thesistu@polylingual@faculty\par
+      \thesistu@polylingual@university
     \end{minipage}\par
     \AdvisorBlock\par
 %    \end{macrocode}
@@ -1746,7 +1746,7 @@
   \end{SFFont}%
   \pagestyle{empty}%
   \cleardoublepage
-  \thesisLaTeX@restorelayout
+  \thesistu@restorelayout
   \restoregeometry
 }%
 %    \end{macrocode}
@@ -1764,28 +1764,28 @@
 %    \begin{macrocode}
 %^^A  \newgeometry{%
 %^^A    left=2.4cm,right=2.4cm,bottom=2.5cm,top=2cm,
-%^^A    headsep=\thesisLaTeX@header@placement,
-%^^A    head=2\thesisLaTeX@logo@offset@height
+%^^A    headsep=\thesistu@header@placement,
+%^^A    head=2\thesistu@logo@offset@height
 %^^A  }%
 %    \end{macrocode}
 % Save the current page layout lengths for later restoration.
 %    \begin{macrocode}
-  \thesisLaTeX@savelayout
+  \thesistu@savelayout
   \setlength{\parindent}{0pt}%
   \setlength{\baselineskip}{13.6pt}%
   \setlength{\parskip}{0pt plus 1pt}%
   \begin{SFFont}{phv}%
     \sffamily
-      \chapter*{\thesisLaTeX@polylingual@StatementChapter}%
-      \thesisLaTeX@person@author@fullname\\
-      \thesisLaTeX@data@address\par
+      \chapter*{\thesistu@polylingual@StatementChapter}%
+      \thesistu@person@author@fullname\\
+      \thesistu@data@address\par
       \vspace{1.2cm}%
-      {\normalfont\thesisLaTeX@polylingual@Statement}\par
+      {\normalfont\thesistu@polylingual@Statement}\par
       \vspace{1.2cm}%
-      \SignatureFields[y]{\thesisLaTeX@person@author@name}{}%
+      \SignatureFields[y]{\thesistu@person@author@name}{}%
   \end{SFFont}%
   \cleardoublepage
-  \thesisLaTeX@restorelayout
+  \thesistu@restorelayout
 %^^A  \restoregeometry
 }%
 %    \end{macrocode}
@@ -1917,12 +1917,12 @@
 %
 % \subsubsection{Page Style}
 %
-% \begin{macro}{thesisLaTeX@pagestyle@default}
+% \begin{macro}{thesistu@pagestyle@default}
 % Define the default page style of the thesis.
 %    \begin{macrocode}
-\makepagestyle{thesisLaTeX@pagestyle@default}%
-\makeevenfoot{thesisLaTeX@pagestyle@default}{\thepage}{}{}%
-\makeoddfoot{thesisLaTeX@pagestyle@default}{}{}{\thepage}%
+\makepagestyle{thesistu@pagestyle@default}%
+\makeevenfoot{thesistu@pagestyle@default}{\thepage}{}{}%
+\makeoddfoot{thesistu@pagestyle@default}{}{}{\thepage}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1932,11 +1932,11 @@
 % \begin{macro}{\backmatter}
 % Apply the default page style to the thesis.
 %    \begin{macrocode}
-\aliaspagestyle{chapter}{thesisLaTeX@pagestyle@default}%
-\aliaspagestyle{part}{thesisLaTeX@pagestyle@default}%
-\addto\frontmatter{\pagestyle{thesisLaTeX@pagestyle@default}}%
+\aliaspagestyle{chapter}{thesistu@pagestyle@default}%
+\aliaspagestyle{part}{thesistu@pagestyle@default}%
+\addto\frontmatter{\pagestyle{thesistu@pagestyle@default}}%
 \addto\mainmatter{\pagestyle{Ruled}}%
-\addto\backmatter{\pagestyle{thesisLaTeX@pagestyle@default}}%
+\addto\backmatter{\pagestyle{thesistu@pagestyle@default}}%
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
