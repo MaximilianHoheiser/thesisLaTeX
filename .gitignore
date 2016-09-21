@@ -1,3 +1,10 @@
+# =========================
+# Operating System Files
+# =========================
+
+# Windows
+# ========================
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -17,9 +24,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# =========================
-# Operating System Files
-# =========================
 
 # OSX
 # =========================
@@ -46,8 +50,17 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-## personal notes
+# =========================
+# Personal Files
+# =========================
+
+# personal notes
 notizen*
+
+
+# =========================
+# Latex Files
+# =========================
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
@@ -110,7 +123,7 @@ acs-*.bib
 *.cpt
 
 #class files
-# *.cls
+*.cls
 *.hd
 
 # fixme
