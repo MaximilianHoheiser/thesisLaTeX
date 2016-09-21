@@ -1,6 +1,8 @@
 % Copyright (C) 2014-2016 by Thomas Auzinger <thomas@auzinger.name>
 % Copyright (C) 2016 by Maximilian Hoheiser <maximilian.hoheier@student.tuwien.ac.at>
 
+%===============================================================================================================
+%%LaTeX relevant commands
 
 \documentclass[final]{vutinfth} % Remove option 'final' to obtain debug information.
 %atention draft only links images, but doesnt diplay them [draft,final]
@@ -36,10 +38,14 @@
 %subfiles can be comppiled on their own
 
 %include images in the tex files, which can be in separate folders
-\graphicspath{{graphics/}{example/graphics/}{chapter01/graphics/}{chapter02/graphics/}}
+%additional chapters must be added in the way {chapterX/graphics/}
+\graphicspath{{graphics/}{chapter1/graphics/}{chapter2/graphics/}}
 \DeclareGraphicsExtensions{.jpg, .png, .eps} %defines the image extensions LaTeX searches for
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%===========================================================================================================
+%% Userimput
+
 % Define convenience functions to use the author name and the thesis title in the PDF document properties.
 \newcommand{\authorname}{Forename Surname} % The author name without titles.
 \newcommand{\thesistitle}{Title of the Thesis} % The title of the thesis. The English version should be used, if it exists.
@@ -64,7 +70,9 @@
 %\glstocfalse   % Remove the glossaries from the table of contents.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%===========================================================================================================
+%% Thesisdatainput
+
 % Set persons with 4 arguments:
 %  {title before name}{name}{title after name}{gender}
 %  where both titles are optional (i.e. can be given as empty brackets {}).
@@ -91,7 +99,7 @@
 \setsubtitle{Optional Subtitle of the Thesis}{Optionaler Untertitel der Arbeit} % Sets English and German version of the subtitle (both can be English or German).
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Select the thesis type: bachelor / master / doctor / phd-school.
 % Bachelor:
 \setthesis{bachelor}
@@ -118,9 +126,11 @@
 \setsecondreviewerdata{Affiliation, Country}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define convenience macros.
 \newcommand{\todo}[1]{{\color{red}\textbf{TODO: {#1}}}} % Comment for the final version, to raise errors.
+
+%==================================================================================================================
+%%Document imput
 
 
 \begin{document}
@@ -155,19 +165,16 @@
 %\chapter{Introduction}
 %\todo{Enter your text here.}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%include a example chapter where layout and functions of this class are displayed
-\subfile{./example/example.tex} %remove for your thesis
-
-% include chapter01 
-\subfile{./chapter01/chapter01.tex} %chapter01 is in a sepperate latex file, and can be compiled on its own
-
-% include chapter02
-\subfile{./chapter02/chapter02.tex} %chapter01 is in a sepperate latex file, and can be compiled on its own
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% include chapter1 
+\subfile{./chapter1/chapter1.tex} %chapter01 is in a sepperate latex file, and can be compiled on its own
 
+% include chapter2
+\subfile{./chapter2/chapter2.tex} %chapter01 is in a sepperate latex file, and can be compiled on its own
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \backmatter
 
 % Use an optional list of figures.

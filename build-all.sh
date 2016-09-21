@@ -1,10 +1,10 @@
 #!/bin/sh
-# Copyright (C) 2014-2016 by Thomas Auzinger <thomas@auzinger.name>
+# Copyright (C) 2016- Maximilian Hoheiser <maximilian.hoheiser@student.tuwien.ac.at>
 
-CLASS=vutinfth
-SOURCE=example
+CLASS=thesistu
+SOURCE=thesis
 
-# Build vutinfth documentation
+# Build thesistu documentation
 pdflatex $CLASS.dtx
 pdflatex $CLASS.dtx
 makeindex -s gglo.ist -o $CLASS.gls $CLASS.glo
@@ -12,10 +12,10 @@ makeindex -s gind.ist -o $CLASS.ind $CLASS.idx
 pdflatex $CLASS.dtx
 pdflatex $CLASS.dtx
 
-# Build the vutinfth class file
+# Build the thesistu class file
 pdflatex $CLASS.ins
 
-# Build the vutinfth example document
+# Build the thesistu example document
 pdflatex $SOURCE
 bibtex   $SOURCE
 pdflatex $SOURCE

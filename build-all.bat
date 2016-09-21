@@ -1,11 +1,10 @@
-rem Copyright (C) 2014-2016 by Thomas Auzinger <thomas@auzinger.name>
-
+rem Copyright (C) 2016- Maximilian Hoheiser <maximilian.hoheiser@student.tuwien.ac.at>
 @echo off
-set CLASS=thesisLaTeX
+set CLASS=thesistu
 set SOURCE=thesis
 @echo on
 
-rem Build thesisLaTeX documentation
+rem Build thesistu documentation
 pdflatex %CLASS%.dtx
 pdflatex %CLASS%.dtx
 makeindex -s gglo.ist -o %CLASS%.gls %CLASS%.glo
@@ -13,10 +12,10 @@ makeindex -s gind.ist -o %CLASS%.ind %CLASS%.idx
 pdflatex %CLASS%.dtx
 pdflatex %CLASS%.dtx
 
-rem Build the thesisLaTeX class file
+rem Build the thesistu class file
 pdflatex %CLASS%.ins
 
-rem Build the thesisLaTeX example document
+rem Build the thesistu example document
 pdflatex %SOURCE%
 bibtex   %SOURCE%
 pdflatex %SOURCE%

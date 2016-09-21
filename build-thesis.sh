@@ -1,8 +1,7 @@
 #!/bin/sh
-# Copyright (C) 2014-2016 by Thomas Auzinger <thomas@auzinger.name>
+# Copyright (C) 2016- Maximilian Hoheiser <maximilian.hoheiser@student.tuwien.ac.at>
 
-# Replace the 'x' in the next line with the name of the thesis' main LaTeX document without the '.tex' extension
-SOURCE=x
+SOURCE=thesis
 
 # Build the thesis document
 pdflatex $SOURCE

@@ -1,6 +1,6 @@
 rem Copyright (C) 2016- Maximilian Hoheiser <maximilian.hoheiser@student.tuwien.ac.at>
 @echo off
-set SOURCE=thesis
+set SOURCE=example
 @echo on
 
 rem Build the thesis document
