@@ -38,6 +38,46 @@ makeindex -t %SOURCE%.alg -s %SOURCE%.ist -o %SOURCE%.acr %SOURCE%.acn
 makeindex -t %SOURCE%.ilg -o %SOURCE%.ind %SOURCE%.idx
 pdflatex %SOURCE%
 pdflatex %SOURCE%
+del *.acn
+del *.acr
+del *.alg
+del *.aux
+del *.bbl
+del *.blg
+del *.glg
+del *.glo
+del *.gls
+del *.idx
+del *.ilg
+del *.ind
+del *.ist
+del *.lof
+del *.lot
+del *.out
+del *.toc
+del *.hd
+del *.loa
+
+cd ..
+del *.acn
+del *.acr
+del *.alg
+del *.aux
+del *.bbl
+del *.blg
+del *.glg
+del *.glo
+del *.gls
+del *.idx
+del *.ilg
+del *.ind
+del *.ist
+del *.lof
+del *.lot
+del *.out
+del *.toc
+del *.hd
+del *.loa
 
 @echo off
 echo.
