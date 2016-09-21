@@ -1,5 +1,5 @@
 #ThesisTu 
-![](http://img.shields.io/badge/build status-pass-lightgreen.svg)
+![](http://img.shields.io/badge/build status - pass - brightgreen.svg)
 
 
 ##Description
