@@ -1,7 +1,8 @@
 rem Copyright (C) 2016- Maximilian Hoheiser <maximilian.hoheiser@student.tuwien.ac.at>
 @echo off
 set CLASS=thesistu
-set SOURCE=thesis
+set SOURCE=example
+set SOURCE2=thesis
 @echo on
 
 rem Build thesistu documentation
@@ -15,7 +16,19 @@ pdflatex %CLASS%.dtx
 rem Build the thesistu class file
 pdflatex %CLASS%.ins
 
+rem Build the thesistu thesis document
+pdflatex %SOURCE%
+bibtex   %SOURCE%
+pdflatex %SOURCE%
+pdflatex %SOURCE%
+makeindex -t %SOURCE%.glg -s %SOURCE%.ist -o %SOURCE%.gls %SOURCE%.glo
+makeindex -t %SOURCE%.alg -s %SOURCE%.ist -o %SOURCE%.acr %SOURCE%.acn
+makeindex -t %SOURCE%.ilg -o %SOURCE%.ind %SOURCE%.idx
+pdflatex %SOURCE%
+pdflatex %SOURCE%
+
 rem Build the thesistu example document
+cd example\
 pdflatex %SOURCE%
 bibtex   %SOURCE%
 pdflatex %SOURCE%
