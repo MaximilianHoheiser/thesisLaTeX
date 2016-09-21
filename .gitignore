@@ -62,6 +62,11 @@ notizen*
 # Latex Files
 # =========================
 
+# thesistu folder structure files
+chapter*.pdf
+*Logo*.pdf
+*Header.pdf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
