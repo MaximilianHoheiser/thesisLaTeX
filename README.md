@@ -1,5 +1,5 @@
 
-# Description ---
+Description
 ---
 The thesistu document class is a LaTeX2e based template. It is based on the class template [**vutinfth**](https://gitlab.cg.tuwien.ac.at/auzinger/vutinfth/tree/master) of Thomas Auzinger from the Faculty of Informatics at the TU Wien. Included are the document class and its documentation, a thesis template with graphics and chapter subfolders, which is ready to edit as well as an example which shows what is possible with this class and includes a introduction to LaTeX and useful LaTeX software.  
 
