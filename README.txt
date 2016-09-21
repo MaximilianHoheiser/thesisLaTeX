@@ -5,7 +5,7 @@ The thesistu document class is a LaTeX2e based template. It is based on the clas
 
 
 
-##Support
+## Support
 -------------------------------------------------------------------
 For support you can consolidate the documentation of this project, which is given via the wiki of this project and the [documentation](thesistu.pdf) of the thesistu class file, where a detailed usage description is given. Also be sure to look at the example folder, which contains a complete [example](example/example.txt) of the intended use of the thesistu class with each chapter in a subfolder, a [bibliography](example/example.bib) file and the intended folder structure for images.  
 If you encounter problems and, or have feature requests you can use the issue section of GitHub, or contact me directly maximilian.hoheiser@student.tuwien.ac.at
