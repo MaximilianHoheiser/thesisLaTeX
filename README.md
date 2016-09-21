@@ -9,12 +9,12 @@ The thesistu document class is a LaTeX2e based template. It is based on the clas
 
 ## Support
 
-For support you can consolidate the documentation of this project, which is given via the wiki of this project and the [documentation](thesistu.pdf) of the thesistu class file, where a detailed usage description is given. Also be sure to look at the example folder, which contains a complete [example](example/example.txt) of the intended use of the thesistu class with each chapter in a subfolder, a [bibliography](example/example.bib) file and the intended folder structure for images.  
+For support you can consolidate the documentation of this project, which is given via the wiki of this project and the [documentation](https://github.com/madmaxT800/thesistu/blob/master/thesistu.pdf) of the thesistu class file, where a detailed usage description is given. Also be sure to look at the example folder, which contains a complete [example](https://github.com/madmaxT800/thesistu/blob/master/example/example.tex) of the intended use of the thesistu class with each chapter in a subfolder, a bibliography file and the intended folder structure for images.  
 If you encounter problems and, or have feature requests you can use the issue section of GitHub, or contact me directly maximilian.hoheiser@student.tuwien.ac.at
 
 ##Installation
 
-To use the thesistu class, it has first to be generated from the documented source file thesistu.dtx. This is achieved by executing the build script for Windows systems (build-all.bat) or Unix-based systems (build-all.sh). Since the generation process uses LaTeX itself, make sure that the LaTeX installation is up-to-date, for recommendations on which distribution to use consolidate the [example](example/example.txt) file. After the thesistu.cls file was generated there are some different ways to use it with your local LaTeX distribution, you can eather place it in the folder of the .tex file of your thesis or you can install it. For the installing procedure look at the [example](example/example.tex) file under the section 1.4
+To use the thesistu class, it has first to be generated from the documented source file thesistu.dtx. This is achieved by executing the build script for Windows systems (build-all.bat) or Unix-based systems (build-all.sh). Since the generation process uses LaTeX itself, make sure that the LaTeX installation is up-to-date, for recommendations on which distribution to use consolidate the [example](https://github.com/madmaxT800/thesistu/blob/master/example/example.pdf) file. After the thesistu.cls file was generated there are some different ways to use it with your local LaTeX distribution, you can eather place it in the folder of the .tex file of your thesis or you can install it. For the installing procedure look at the [example](https://github.com/madmaxT800/thesistu/blob/master/example/example.pdf) file under the section 1.4
 
 ## Copyright Notice
 
