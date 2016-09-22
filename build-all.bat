@@ -2,7 +2,6 @@ rem Copyright (C) 2016- Maximilian Hoheiser <maximilian.hoheiser@student.tuwien.
 @echo off
 set CLASS=thesistu
 set SOURCE=example
-set SOURCE2=thesis
 @echo on
 
 rem Build thesistu documentation
@@ -28,6 +27,7 @@ pdflatex %SOURCE%
 pdflatex %SOURCE%
 
 rem Build the thesistu example document
+copy thesistu.cls example\thesistu.cls
 cd example\
 pdflatex %SOURCE%
 bibtex   %SOURCE%
@@ -77,6 +77,8 @@ del *.lot
 del *.out
 del *.toc
 del *.hd
+del example*
+
 
 @echo off
 echo.

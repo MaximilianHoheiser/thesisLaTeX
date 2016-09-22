@@ -38,7 +38,7 @@
 %subfiles can be comppiled on their own
 
 %include images in the tex files, which can be in separate folders
-\graphicspath{{graphics/}{chapter1/graphics/}{chapter2/graphics/}}
+\graphicspath{{graphics/}{chapter1/graphics/}}
 \DeclareGraphicsExtensions{.jpg, .png, .eps} %defines the image extensions LaTeX searches for
 
 
@@ -71,6 +71,18 @@
 
 %===========================================================================================================
 %% Thesisdatainput
+
+\setlogo{TUifp} %definde which eps file is used for the logo
+\setheader{TUifp} %define which eps file is used for the header
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Foter on the titlepage
+\setunizipcode{A-1010}
+\setunicity{City}
+\setunistreet{Steet 15}
+\setunitelnr{+43-1-234567-0}
+\setuniwebsite{www.website.at}
+
 
 
 % Set persons with 4 arguments:
@@ -116,19 +128,15 @@
 %\setthesis{phd-school} % Deactivate non-English title pages (see below)
 
 % For bachelor and master:
-\setcurriculum{Media Informatics and Visual Computing}{Medieninformatik und Visual Computing} % Sets the English and German name of the curriculum.
+\setcurriculum{Curriculum}{Kurrikulum} % Sets the English and German name of the curriculum.
 \setuniversity{University Name}{Universitaets Name} %Sets the Englisch and German name of the University
 \setfaculty{Faculty}{Fakultaet} %Sets the Englisch and German name of the Faculty
 \setinstitut{Institut}{Insitut} %Sets the Englisch and German name of the Institut
-
 
 % For dissertations at the PhD School:
 \setfirstreviewerdata{Affiliation, Country}
 \setsecondreviewerdata{Affiliation, Country}
 
-
-% Define convenience macros.
-\newcommand{\todo}[1]{{\color{red}\textbf{TODO: {#1}}}} % Comment for the final version, to raise errors.
 
 %==================================================================================================================
 %%Document imput

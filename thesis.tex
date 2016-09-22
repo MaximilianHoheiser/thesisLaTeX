@@ -52,7 +52,7 @@
 
 % Set PDF document properties
 \hypersetup{
-    pdfpagelayout   = TwoPageRight,           % How the document is shown in PDF viewers (optional).
+    pdfpagelayout   = {TwoPageRight},           % How the document is shown in PDF viewers (optional).
     linkbordercolor = {Melon},                % The color of the borders of boxes around crosslinks (optional).
     pdfauthor       = {\authorname},          % The author's name in the document properties (optional).
     pdftitle        = {\thesistitle},         % The document's title in the document properties (optional).
@@ -73,10 +73,17 @@
 %===========================================================================================================
 %% Thesisdatainput
 
+\setlogo{TUifp} %definde which eps file is used for the logo
+\setheader{TUifp} %define which eps file is used for the header
 
-%university information
-\setuniversity{University Name}{Universitaets Name} %if both englisch and german titlepages are used, both must be supplyed
-\setfaculty{Faculty}{Fakultaet} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Foter on the titlepage
+\setunizipcode{A-1010}
+\setunicity{City}
+\setunistreet{Steet 15}
+\setunitelnr{+43-1-234567-0}
+\setuniwebsite{www.website.at}
+
 
 
 % Set persons with 4 arguments:
@@ -201,7 +208,6 @@
 
 % Add a bibliography.
 \bibliographystyle{alpha}
-\bibliography{./example/example} %implements a bibliography for a chapter, where the bib file is stored in a sepperat chapter folder
 \bibliography{thesis} %implements a bibliography from a supplied biblatex file, which must be in the main folder 
 
 \end{document}

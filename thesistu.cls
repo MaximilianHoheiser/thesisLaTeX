@@ -377,8 +377,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \CreateData{address}%
 \CreateData{regnumber}%
+\CreateData{unizipcode}%
+\CreateData{unitelnr}%
+\CreateData{unistreet}%
+\CreateData{unicity}%
+\CreateData{uniwebsite}
 \CreateData{firstreviewerdata}%
 \CreateData{secondreviewerdata}%
+\CreateData{logo}%
+\CreateData{header}%
 \CreatePerson{author}%
 \CreatePerson{advisor}%
 \CreatePerson{secondadvisor}%
@@ -418,8 +425,8 @@
   english=at the ,
   naustrian=der ]{universitytext}%
 \CreatePolylingual[
-  english= at the ,
-  naustrian= am ]{instituttext}%
+  english= at the Institution of,
+  naustrian= am Institut f\"ur]{instituttext}%
 \CreatePolylingual[
   english=Assistance,
   naustrian=Mitwirkung]{Assistance}%
@@ -567,11 +574,10 @@
   \begin{minipage}[b][\thesistu@logo@offset@height][t]{%
       \thesistu@bar@width
     }%
-    \includegraphics{TU_INF_header}%
+\includegraphics{\thesistu@data@header_header}%
     \hspace*{\thesistu@logo@offset@x}%
     \raisebox{\thesistu@logo@offset@y}{%
-      \includegraphics[scale=1]{TU_INF_Logo_gray}%
-%%   \includegraphics[scale=1]{\thesistu@logo@image}%
+      \includegraphics[scale=1]{\thesistu@data@logo_logo}%
     }%
   \end{minipage}%
 }%
@@ -579,11 +585,11 @@
   \centering
   \begin{minipage}{\textwidth}%
     \centering\thesistu@normalsize\sffamily
-    Technische Universit\"{a}t Wien\\
-    A-1040 Wien \thesistu@squarebullet\space
-    Karlsplatz 13 \thesistu@squarebullet\space
-    Tel. +43-1-58801-0 \thesistu@squarebullet\space
-    www.tuwien.ac.at%
+    \thesistu@polylingual@university\\
+    \thesistu@data@unizipcode\space \thesistu@data@unicity\space \thesistu@squarebullet\space
+    \thesistu@data@unistreet\space \thesistu@squarebullet\space
+    Tel.\space \thesistu@data@unitelnr\space \thesistu@squarebullet\space
+    \thesistu@data@uniwebsite%
   \end{minipage}%
 }%
 \makepagestyle{thesistu@pagestyle@titlepage}%

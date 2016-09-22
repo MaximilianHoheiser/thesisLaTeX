@@ -13,6 +13,24 @@ makeindex -t $SOURCE.alg -s $SOURCE.ist -o $SOURCE.acr $SOURCE.acn
 makeindex -t $SOURCE.ilg -o $SOURCE.ind $SOURCE.idx
 pdflatex $SOURCE
 pdflatex $SOURCE
+rm *.acn
+rm *.acr
+rm *.alg
+rm *.aux
+rm *.bbl
+rm *.blg
+rm *.glg
+rm *.glo
+rm *.gls
+rm *.idx
+rm *.ilg
+rm *.ind
+rm *.ist
+rm *.lof
+rm *.lot
+rm *.out
+rm *.toc
+rm *.hd
 
 echo
 echo

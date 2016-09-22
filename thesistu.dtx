@@ -73,7 +73,7 @@
 % \changes{v1.3}{2014/11/25}{Added support for a dissertation at the Vienna Phd School of Informatics. \issue{4}}
 % \changes{v1.4}{2015/08/01}{Added comma to separate posttitle and changed mainmatter pagestyle to `Ruled'.}
 % \changes{v1.5}{2016/01/17}{Updated name of university to `TU Wien'.}
-% \changes{v2.0}{2016/09/01}{added setinstitut, setuniversity, setfaculty}
+% \changes{v2.0}{2016/09/01}{added setinstitut, setuniversity, setfaculty, added the possibility to set header and logo}
 %
 % \GetFileInfo{thesistu.dtx}
 %
@@ -96,7 +96,7 @@
 % \maketitle
 %
 % \begin{abstract}
-% This class provides a \LaTeXe\ template for theses at the Faculty of Physics at the TU Wien. With a little effort it can be adapted to fit any Faculty at any Universit.
+% This class provides a \LaTeXe\ template for theses at any Faculty at any University gifen by the author, only a Logo of the Faculty and University is needed. With a little effort it can be adapted to fit any Faculty at any Universit.
 % In the current version, bachelor and master theses as well as dissertations are supported in both English and German.
 % \end{abstract}
 %
@@ -109,7 +109,7 @@
 % \section{Introduction}
 %
 % This class provides a \LaTeXe\ template for all theses at the Faculty of Physics at the TU Wien. It can be adapted to fit any Faculty at any Universit.
-% Further information on the document class and accompanying support can be found at \url{https://github.com/MaximilianHoheiser/vutphys}.
+% Further information on the document class and accompanying support can be found at \url{https://madmaxt800.github.io/thesistu/}.
 % Further guidelines may apply to both the format and structure of certain theses.
 % Thesis authors are advised to consult Section~\ref{sec:user} for a documentation of all relevant commands.
 % Information for class developers is provided in Section~\ref{sec:class}.
@@ -363,10 +363,45 @@
 % It consists of obligatory items such as the title page(s) and the statement of originality as well as optional items such as the acknowledgements or the abstract in different languages.
 % In the remainder of this section, the available items of the front matter are given.
 %
+% \changes{v2.0}{2016/09/22}{added the possibility to set header and logo}
 % \DescribeMacro{\setlogo}
-% Used as |\setlogo|\marg{UNins}, where \meta{UN} are the first two Letters of your university
+% Used as |\setlogo|\marg{UNins}, where \meta{UN} are the first two letters of your university
 % and \meta{ins} are the first tree letters of your institut. The Logo-File must be a vektor graphic with the |.eps| format.
-% to create your own, use the given ones as referenc.
+% The file must be placed in the main graphics folder and must have the name: |UNins_logo.eps|. To create your own, use the given ones as referenc. And make sure, that you subbmit your new ones to GitHub
+% \DescribeMacro{\setheader}
+% Used as |\setheader|\marg{UNins}, where \meta{UN} are the first two Letters of your university
+% and \meta{ins} are the first tree letters of your institut. The Logo-File must be a vektor graphic with the |.eps| format.
+% The file must be placed in the main graphics folder and must have the name: |UNins_header.eps|. To create your own, use the given ones as referenc. And make sure, that you subbmit your new ones to GitHub.
+%
+% The goal is to have as many logos and headers as possible, so that the author only has to specify one and not create his/her own.
+% A list is given and regularly updated which lists the available ones:
+% \begin{center}
+% \begin{tabular}{lrr}
+%   \toprule
+%   Name & University & Institut\\
+%   \midrule
+%   TUinf & TU Wien & Informatik\\
+%   TUifp & TU Wien & Institut f\"ur Festk\"orperphysik\\
+%   \bottomrule
+%  \end{tabular}
+%  \end{center}
+%
+% \changes{v2.0}{2016/09/21}{added ability to change footer on titlepage}
+% The following section describes the inforation that is needet for the fotnote on the titlepage, besides the university name.
+%
+% \DescribeMacro{\setunizipcode}
+% Used as |\setunizipcode|\marg{ZipCode}, where \meta{ZipCode} is the ZipCode of the University in the form of eg:
+% \marg{A-1040}, where \meta{A} is the first letter of the country, and \meta{1040} is the actual zipcode.\\
+% \DescribeMacro{\setunistreet}
+% Used as |\setunistreet|\marg{Steetname Steetnumber}, where \meta{Steetname} ist the name of the steet,
+% and \meta{Streetnumber} is the Steetnumber of the university.\\
+% \DescribeMacro{\unicity}
+% Used as |\setunicity|\marg{City}, where \meta{City} is the City of your universities address.\\
+% \DescribeMacro{\setunitelnr}
+% Used as |\setunitelnr|{Telephone Number}, where \meta{Telephone Number} is the main telephone number of your university,
+% this is not necessary but the layout will look better with the telephone number gifen.\\
+% \DescribeMacro{\setuniwebsite}
+% Used as |\setuniwebsite|\marg{URL}, where \meta{URL} is the website of your university (without http://).\\
 %
 % \DescribeMacro{\addtitlepage}
 % Used as |\addtitlepage|\marg{lang}, where \meta{lang} is the name of a language as given in the |babel| package (see Section~\ref{sec:user:data:list}). The necessary pieces of information have to be set beforehand (as described in Section~\ref{sec:user:data}). This command is usually used directly after |\begin{document}\frontmatter|.
@@ -1157,13 +1192,21 @@
 %\label{sec:impl:data:declarations}
 %
 % \begin{macro}{Textual Data}
-% \changes{v1.3}{2014/11/25}{Updated to support external reviewer data. \issue{4}}
+% \changes{v1.3}{2014/11/25}{Updated to support external reviewer data. \issue{4}}.
+% \changes{v2.0}{2016/09/21}{added the abbility to change footer on titlepage}
 % Creates the required textual data entries.
 %    \begin{macrocode}
 \CreateData{address}%
 \CreateData{regnumber}%
+\CreateData{unizipcode}%
+\CreateData{unitelnr}%
+\CreateData{unistreet}%
+\CreateData{unicity}%
+\CreateData{uniwebsite}
 \CreateData{firstreviewerdata}%
 \CreateData{secondreviewerdata}%
+\CreateData{logo}%
+\CreateData{header}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1225,8 +1268,8 @@
   english=at the ,
   naustrian=der ]{universitytext}%
 \CreatePolylingual[
-  english= at the ,
-  naustrian= am ]{instituttext}%
+  english= at the Institution of,
+  naustrian= am Institut f\"ur]{instituttext}%
 \CreatePolylingual[
   english=Assistance,
   naustrian=Mitwirkung]{Assistance}%
@@ -1354,7 +1397,7 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \changes{v2.1}{2016/09/21}{added setuniversity, setfaculty, setinstitut}
+% \changes{v2.0}{2016/09/21}{added setuniversity, setfaculty, setinstitut}
 %
 % \begin{macro}{\setuniversity}
 % Sets the university name.
@@ -1452,22 +1495,25 @@
 %
 % \begin{macro}{\thesistu@header@titlepage}
 % Initialize header.
+% \changes{v2.0}{2016/09/21}{added abbility to set logo and header}
 %    \begin{macrocode}
 \newcommand{\thesistu@header@titlepage}{%
   \centering
   \begin{minipage}[b][\thesistu@logo@offset@height][t]{%
       \thesistu@bar@width
     }%
-    \includegraphics{TU_INF_header}%
+	\includegraphics{\thesistu@data@header_header}%
     \hspace*{\thesistu@logo@offset@x}%
     \raisebox{\thesistu@logo@offset@y}{%
-      \includegraphics[scale=1]{TU_INF_Logo_gray}%
-%%	  \includegraphics[scale=1]{\thesistu@logo@image}%
+      \includegraphics[scale=1]{\thesistu@data@logo_logo}%
     }%
   \end{minipage}%
 }%
 %    \end{macrocode}
 % \end{macro}
+%
+% \changes{v2.0}{2016/09/21}{added ability to change footer of titlepage}
+%
 %
 % \begin{macro}{\thesistu@footer@titlepage}
 % Initialize footer.
@@ -1476,11 +1522,11 @@
   \centering
   \begin{minipage}{\textwidth}%
     \centering\thesistu@normalsize\sffamily
-    Technische Universit\"{a}t Wien\\
-    A-1040 Wien \thesistu@squarebullet\space
-    Karlsplatz 13 \thesistu@squarebullet\space
-    Tel. +43-1-58801-0 \thesistu@squarebullet\space
-    www.tuwien.ac.at%
+    \thesistu@polylingual@university\\
+    \thesistu@data@unizipcode\space \thesistu@data@unicity\space \thesistu@squarebullet\space
+    \thesistu@data@unistreet\space \thesistu@squarebullet\space
+    Tel.\space \thesistu@data@unitelnr\space \thesistu@squarebullet\space
+    \thesistu@data@uniwebsite%
   \end{minipage}%
 }%
 %    \end{macrocode}
@@ -1770,7 +1816,7 @@
     \begin{minipage}[b][1.8cm][c]{\textwidth}%
       \thesistu@normalsize%
 	  \vspace{1mm}
-% \changes{v2.1}{2016/09/21}{added}
+% \changes{v2.0}{2016/09/21}{added}
       \thesistu@polylingual@facultytext \space \thesistu@polylingual@faculty\\
 	  \thesistu@polylingual@instituttext \space \thesistu@polylingual@institut\\
       \thesistu@polylingual@universitytext \space \thesistu@polylingual@university\\
