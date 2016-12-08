@@ -62,9 +62,11 @@
 \RequirePackage{geometry}%
 \RequirePackage{calc}%
 \RequirePackage{etoolbox}%
+
 \RequirePackage{graphicx}%
 \graphicspath{{graphics/}}%
 \newcommand{\@namexdef}[1]{\expandafter\xdef\csname#1\endcsname}%
+\newcommand{\todo}[1]{{\color{red}\textbf{TODO: {#1}}}}
 \newcommand{\ifestrequal}[4]{%
   \begingroup
     \edef\thesistu@tempa{{#1}}%
@@ -427,6 +429,10 @@
 \CreatePolylingual[
   english= at the Institution of,
   naustrian= am Institut f\"ur]{instituttext}%
+ % \changes{v2.1}{2016/12/08}
+\CreatePolylingual[
+  english= from,
+  naustrian= aus]{lecturetext}%
 \CreatePolylingual[
   english=Assistance,
   naustrian=Mitwirkung]{Assistance}%
@@ -535,6 +541,9 @@
 }%
 \newcommand{\setinstitut}[2]{%
   \CreatePolylingual[english=#1,naustrian=#2]{institut}%
+}%
+\newcommand{\setlecture}[2]{%
+  \CreatePolylingual[english=#1,naustrian=#2]{lecture}%
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\newsetlength}[2]{%
@@ -777,29 +786,26 @@
       \end{minipage}\par
       \thesistu@bigskip\thesistu@bigskip
       {\thesistu@LARGE\thesistu@polylingual@thesisname}\par
+  \medskip   {\thesistu@large{\thesistu@polylingual@lecturetext \space \thesistu@polylingual@lecture}}\par
       \thesistu@bigskip
       {\thesistu@large\thesistu@polylingual@submission}\par
-      \thesistu@bigskip
-      \ifundergraduate{%
+  \medskip      \ifundergraduate{%
         {\thesistu@LARGE{\bfseries\thesistu@polylingual@degreename}}\par
         \thesistu@bigskip
         {\thesistu@large\thesistu@polylingual@in}\par
-        \thesistu@bigskip
-        {\thesistu@Large{\bfseries\thesistu@polylingual@Curriculum}}\par
+\medskip        {\thesistu@Large{\bfseries\thesistu@polylingual@Curriculum}}\par
       }%
       \ifgraduate{%
         {\thesistu@LARGE{\bfseries\thesistu@polylingual@degreename}}\par
         \ifphd{%
           \thesistu@bigskip
           {\thesistu@large\thesistu@polylingual@within}\par
-          \thesistu@bigskip
-          {\thesistu@LARGE{\bfseries\thesistu@polylingual@School}}\par
+  \medskip          {\thesistu@LARGE{\bfseries\thesistu@polylingual@School}}\par
         }%
       }%
       \thesistu@bigskip
       {\thesistu@large\thesistu@polylingual@by}\par
-      \thesistu@bigskip
-      {\thesistu@Large{\bfseries\thesistu@person@author@fullname}}\par
+      \medskip      {\thesistu@Large{\bfseries\thesistu@person@author@fullname}}\par
       \smallskip
       {\thesistu@large\thesistu@polylingual@Registrationnumber\
       \thesistu@data@regnumber}\par
@@ -905,6 +911,30 @@
   \chapter*{Kurzfassung}%
 }{%
   \cleardoublepage
+}%
+\newenvironment{introduction}{%
+  \selectlanguage{english}%
+  \section{Introduction}%
+}{%
+  \clearpage
+}%
+\newenvironment{introduction*}{%
+  \selectlanguage{english}%
+  \section*{Introduction}%
+}{%
+  \clearpage
+}%
+\newenvironment{einleitung}{%
+  \selectlanguage{naustrian}%
+  \section{Einleitung}%
+}{%
+  \clearpage
+}%
+\newenvironment{einleitung*}{%
+  \selectlanguage{naustrian}%
+  \section*{Einleitung}%
+}{%
+  \clearpage
 }%
 \makepagestyle{thesistu@pagestyle@default}%
 \makeevenfoot{thesistu@pagestyle@default}{\thepage}{}{}%

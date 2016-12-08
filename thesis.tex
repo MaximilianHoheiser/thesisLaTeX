@@ -17,22 +17,37 @@
 \usepackage{amsmath}    % Extended typesetting of mathematical expression.
 \usepackage{amssymb}    % Provides a multitude of mathematical symbols.
 \usepackage{mathtools}  % Further extensions of mathematical typesetting.
+\usepackage{nicefrac}	% enables different fraction styles
 \usepackage{microtype}  % Small-scale typographic enhancements.
 \usepackage{enumitem}   % User control over the layout of lists (itemize, enumerate, description).
 \usepackage{multirow}   % Allows table elements to span several rows.
 \usepackage{booktabs}   % Improves the typesettings of tables.
-\usepackage{subcaption} % Allows the use of subfigures and enables their referencing.
+\usepackage[binary-units=true]{siunitx}	%nice unit expression
+
+\sisetup{tophrase={{~bis~}},list-final-separator={{~und~}}} %change si range to german (remove for englisch)
+
+\usepackage[justification=raggedright,singlelinecheck=false]{caption} % ,format=hang change the text format to italic of captions
+\usepackage[justification=centering,textfont=it]{subcaption} % Allows the use of subfigures and enables their referencing.
 
 \usepackage[ruled,linesnumbered,algochapter]{algorithm2e} % Enables the writing of pseudo code.
 \usepackage[usenames,dvipsnames,table]{xcolor} % Allows the definition and use of colors. This package has to be included before tikz.
 \usepackage{nag}       % Issues warnings when best practices in writing LaTeX documents are violated.
 \usepackage{hyperref}  % Enables cross linking in the electronic document version. This package has to be included second to last.
+\usepackage[german]{cleveref} %enables the prefix Abbildung: for \cref
 \usepackage[acronym,toc]{glossaries} % Enables the generation of glossaries and lists fo acronyms. This package has to be included last.
+\usepackage[backend=biber,backref=true,hyperref=true,language=german,style=ieee,citestyle=ieee]{biblatex} %specifies the biblatex package to use for citations
+\usepackage[autostyle,austrian=quotes]{csquotes} % enables better quotation styles for citation
+\numberwithin{figure}{section} %change numberation of figures from subsection number
+\numberwithin{table}{section} %change numberation of tables from subsection number
+\numberwithin{equation}{section} %change numberation of equations from subsection number
 
-\usepackage{chngcntr} %use this package to change the numberation of specific types
-\counterwithin{figure}{subsection} %change numberation of figures from subsection number
-\counterwithin{table}{subsection} %change numberation of tables from subsection number
-\numberwithin{equation}{subsection} %change numberation of equations from subsection number
+\makeatletter
+\renewcommand\@memmain@floats{%
+	\counterwithin{figure}{section}
+	\counterwithin{table}{section}
+	\counterwithin{equation}{section}
+}
+\makeatother
 
 \usepackage{subfiles} %allows that chapters are in separate txt files, and can be placed in a subfolder
 %subfiles can be comppiled on their own
@@ -42,7 +57,8 @@
 \graphicspath{{graphics/}{chapter1/graphics/}{chapter2/graphics/}}
 \DeclareGraphicsExtensions{.jpg, .png, .eps} %defines the image extensions LaTeX searches for
 
-
+\usepackage[section]{placeins} %prevent float bevor section
+\addbibresource{thesis.bib} %implements a bibliography from a supplied biblatex file, which must be in the main folder 
 %===========================================================================================================
 %% Userimput
 
@@ -59,8 +75,9 @@
     pdfsubject      = {Subject},              % The document's subject in the document properties (optional).
     pdfkeywords     = {a, list, of, keywords} % The document's keywords in the document properties (optional).
 }
+\setsecnumdepth{section} % Enumerate subsections. %change eg: for subsection enumeration
 
-\setsecnumdepth{subsection} % Enumerate subsections.
+%\setsecnumdepth{subsection} % Enumerate subsections.
 
 \nonzeroparskip             % Create space between paragraphs (optional).
 \setlength{\parindent}{0pt} % Remove paragraph identation (optional).
@@ -133,15 +150,26 @@
 \setuniversity{University Name}{Universitaets Name} %Sets the Englisch and German name of the University
 \setfaculty{Faculty}{Fakultaet} %Sets the Englisch and German name of the Faculty
 \setinstitut{Institut}{Insitut} %Sets the Englisch and German name of the Institut
+\setlecture{Lecture}{Vorlesung} %sets the English and German name and id number of the lecture
 
 % For dissertations at the PhD School:
 \setfirstreviewerdata{Affiliation, Country}
 \setsecondreviewerdata{Affiliation, Country}
 
 
-% Define convenience macros.
-\newcommand{\todo}[1]{{\color{red}\textbf{TODO: {#1}}}} % Comment for the final version, to raise errors.
+%==================================================================================================
+% Acronyms
 
+\newacronym{key}{Name}{description}
+
+%=====================================================================================================
+% Glossary
+\newglossaryentry{key2}
+{
+	name={Name},
+	description={description}
+}
+%================================================================================================
 %==================================================================================================================
 %%Document imput
 
@@ -149,8 +177,7 @@
 \begin{document}
 
 \frontmatter % Switches to roman numbering.
-% The structure of the thesis has to conform to
-%  http://www.informatik.tuwien.ac.at/dekanat
+% The structure of the thesis has to conform to your university
 
 \addtitlepage{naustrian} % German title page (not for dissertations at the PhD School).
 \addtitlepage{english} % English title page.
@@ -170,14 +197,31 @@
 
 % Add a table of contents (toc).
 \tableofcontents % Starred version, i.e., \tableofcontents*, removes the self-entry.
+\clearpage
 
-% Switch to arabic numbering and start the enumeration of chapters in the table of content.
+% Use an optional list of figures.
+\listoffigures % Starred version, i.e., \listoffigures*, removes the toc entry.
+\clearpage
+
+% Use an optional list of tables.
+\listoftables % Starred version, i.e., \listoftables*, removes the toc entry.
+\clearpage
+
+% Use an optional list of alogrithms.
+%\listofalgorithms
+%\addcontentsline{toc}{chapter}{List of Algorithms}
+ 
+
+ 
+ % Switch to arabic numbering and start the enumeration of chapters in the table of content.
 \mainmatter
 
-%if you like to write a chapter in the main file
-%\chapter{Introduction}
-%\todo{Enter your text here.}
-
+%\subfile{./introduction/introduction.tex}	%introduction chapter
+\begin{einleitung*}
+	
+	\todo{Einleitungstext}
+	
+\end{einleitung*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % include chapter1 
@@ -191,23 +235,35 @@
 \backmatter
 
 % Use an optional list of figures.
-\listoffigures % Starred version, i.e., \listoffigures*, removes the toc entry.
+%\listoffigures % Starred version, i.e., \listoffigures*, removes the toc entry.
 
 % Use an optional list of tables.
-\listoftables % Starred version, i.e., \listoftables*, removes the toc entry.
+%\listoftables % Starred version, i.e., \listoftables*, removes the toc entry.
 
 % Use an optional list of alogrithms.
 %\listofalgorithms
 %\addcontentsline{toc}{chapter}{List of Algorithms}
 
 % Add an index.
-\printindex
+%\printindex
 
 % Add a glossary.
-\printglossaries
+%\printglossaries
 
 % Add a bibliography.
-\bibliographystyle{alpha}
-\bibliography{thesis} %implements a bibliography from a supplied biblatex file, which must be in the main folder 
+
+% Add a bibliography.
+%\defbibfilter{internet}{
+%	type=inreference or
+%	type=online
+%}
+
+%\printbibliography[nottype={inreference},nottype={online}]
+%\printbibliography[heading=subbibintoc,filter=internet,title={Internet Quellen}] % only website sources
+%\printbibliography
+
+\appendix
+
+%\subfile{./appendix/appendix.tex} %chapter appendix 1 is in a sepperate latex file, and can be compiled on its own
 
 \end{document}
