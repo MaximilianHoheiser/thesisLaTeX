@@ -10,7 +10,7 @@ The thesistu document class is a LaTeX2e based template. It is based on the clas
 ## Support
 
 For support you can consolidate the documentation of this project, which is given via the wiki of this project and the [**documentation**](https://github.com/madmaxT800/thesistu/blob/master/thesistu.pdf) of the thesistu class file, where a detailed usage description is given. Also be sure to look at the example folder, which contains a complete [**example**](https://github.com/madmaxT800/thesistu/blob/master/example/example.tex) of the intended use of the thesistu class with each chapter in a subfolder, a bibliography file and the intended folder structure for images.  
-If you encounter problems and, or have feature requests you can use the issue section of GitHub, or contact me directly maximilian.hoheiser@student.tuwien.ac.at
+If you encounter problems and, or have feature requests you can use the issue section of GitHub
 
 ##Installation
 
@@ -18,7 +18,7 @@ To use the thesistu class, it has first to be generated from the documented sour
 
 ## Copyright Notice
 
-Copyright (C) 2016- by Maximilian Hoheiser <maximilian.hoheiser@student.tuwein.ac.at>  
+Copyright (C) 2016- by madmaxT800
 Copyright (C) 2014-2016 by Thomas Auzinger <thomas@auzinger.name>  
 
 This work may be distributed and/or modified under the
@@ -29,7 +29,7 @@ The latest version of this license is in
 and version 1.3 or later is part of all distributions of LaTeX
 version 2005/12/01 or later.  
 
-This work has the LPPL maintenance status `maintained'. The Current Maintainer of this work is Maximilian Hoheiser.  
+This work has the LPPL maintenance status `maintained'. The Current Maintainer of this work is madmaxT800.  
 This work consists of the files thesistu.dtx and thesis.ins and the derived file thesis.cls. This work also consists of the file example.tex.  
 
 The 'TU Wien' logo, 'Institut for Solid State Physics' logo and 'Fakultaet fuer !nformatik' logo are copyright of the TU Wien.
